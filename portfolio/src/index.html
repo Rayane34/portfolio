@@ -1,0 +1,71 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">Portfolio</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">Accueil</a></li>
+            <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
+            <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
+            <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="hero">
+        <div class="hero-image">
+            <img src="/api/placeholder/400/400" alt="Photo de profil" class="profile-img">
+        </div>
+        <div class="hero-content">
+            <h1>Cathelin Rayane</h1>
+            <p>Développeur Web Full Stack</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/votre-profil" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/votre-profil" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="cv.pdf" download class="btn">
+                    <i class="fas fa-download"></i> Télécharger CV
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h2>Mes Projets</h2>
+    <div class="projects-grid">
+        <!-- Carte E-commerce -->
+        <div class="project-card">
+            <h3>Site E-commerce PHP</h3>
+            <p>Application web e-commerce avec architecture MVC, gestion des commandes et sécurisation avancée.</p>
+            <a href="ecommerce.html" class="btn">En savoir plus →</a>
+        </div>
+
+        <!-- Carte Vote Électronique -->
+        <div class="project-card">
+            <h3>Vote Électronique</h3>
+            <p>Application client-serveur de vote avec chiffrement ElGamal et interface JavaFX.</p>
+            <a href="vote.html" class="btn">En savoir plus →</a>
+        </div>
+
+        <!-- Carte Nuit de l'Info -->
+        <div class="project-card">
+            <h3>Nuit de l'Info 2023</h3>
+            <p>Création d'un site web interactif et d'un jeu 'Cookie Clicker' en JavaScript.</p>
+            <a href="nuit-info.html" class="btn">En savoir plus →</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>

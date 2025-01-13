@@ -78,6 +78,55 @@ nav {
     color: var(--primary-color);
 }
 
+.bio-section {
+    margin: 2rem 0;
+    background: var(--white);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bio-content h3 {
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.bio-item {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid var(--primary-color);
+}
+
+.bio-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.bio-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .bio-section {
+        margin: 1.5rem 0;
+    }
+
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
 /* Sections */
 section {
     padding: 6rem 2rem;
@@ -190,6 +239,7 @@ section {
 }
 
 /* Buttons */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -200,7 +250,34 @@ section {
     border-radius: 0.5rem;
     font-weight: 500;
     transition: background 0.3s;
+    gap: 0.75rem; /* Ajoute de l'espace entre l'icône et le texte */
 }
+
+.btn i {
+    margin-right: 0; /* Supprime la marge droite précédente car nous utilisons gap */
+    font-size: 1.1em; /* Légèrement plus grand que le texte */
+}
+
+/* Styles spécifiques pour le bouton de CV */
+.btn[download] {
+    padding-left: 1.25rem; /* Légèrement plus d'espace à gauche */
+    padding-right: 1.75rem; /* Plus d'espace à droite */
+}
+.interest-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.interest-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.info-card p {
+    line-height: 1.6;
+}
+
 
 .btn:hover {
     background: var(--primary-dark);

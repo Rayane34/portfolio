@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio d'Apprentissage</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .competence-section {
+      margin-bottom: 3rem;
+    }
+
+    .competence-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .competence-card {
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .competence-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .competence-header {
+      padding: 1.5rem;
+      color: white;
+      font-weight: 600;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .competence-header i:last-child {
+      transition: transform 0.3s ease;
+    }
+
+    .competence-header.active i:last-child {
+      transform: rotate(180deg);
+    }
+
+    .orange-bg {
+      background-color: #e67e22;
+    }
+
+    .green-bg {
+      background-color: #7cb342;
+    }
+
+    .blue-bg {
+      background-color: #1a237e;
+    }
+
+    .competence-content {
+      background-color: white;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+    }
+
+    .competence-content.active {
+      padding: 1.5rem;
+      max-height: 2000px;
+    }
+
+    .ce-box {
+      background-color: #fff8f0;
+      border: 1px solid #ffecd9;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .green-ce {
+      background-color: #f1f8e9;
+      border: 1px solid #dcedc8;
+    }
+
+    .blue-ce {
+      background-color: #e8eaf6;
+      border: 1px solid #c5cae9;
+    }
+
+    .ce-item {
+      margin-bottom: 0.5rem;
+      color: #424242;
+    }
+
+    .ce-title {
+      color: #e67e22;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .green-title {
+      color: #7cb342;
+    }
+
+    .blue-title {
+      color: #1a237e;
+    }
+
+    .ac-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .ac-card {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .ac-header {
+      padding: 1rem;
+      color: white;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .ac-header i:last-child {
+      transition: transform 0.3s ease;
+    }
+
+    .ac-header.active i:last-child {
+      transform: rotate(180deg);
+    }
+
+    .ac-content {
+      background-color: white;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+    }
+
+    .ac-content.active {
+      padding: 1.25rem;
+      max-height: 1000px;
+    }
+
+    .level-label {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+    }
+
+    .retour-btn {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .retour-btn i {
+      margin-right: 0.5rem;
+    }
+
+    .retour-btn:hover {
+      color: var(--primary-dark);
+    }
+
+    @media (min-width: 768px) {
+      .ac-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Gestion du clic sur les en-têtes de compétence
+      document.querySelectorAll('.competence-header').forEach(header => {
+        header.addEventListener('click', function() {
+          this.classList.toggle('active');
+          let content = this.nextElementSibling;
+          if (this.classList.contains('active')) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
+      });
+
+      // Gestion du clic sur les en-têtes d'AC
+      document.querySelectorAll('.ac-header').forEach(header => {
+        header.addEventListener('click', function() {
+          this.classList.toggle('active');
+          let content = this.nextElementSibling;
+          if (this.classList.contains('active')) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
+      <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
+      <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="project-detail">
+  <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+
+  <h2>Portfolio d'Apprentissage</h2>
+  <p>Ce portfolio présente les compétences que j'ai développées au cours de ma formation et de mes projets professionnels. Il illustre comment j'ai mis en œuvre ces compétences dans des situations concrètes.</p>
+
+  <div class="competence-grid">
+    <!-- Compétence 1: Sélectionner les algorithmes (ORANGE) -->
+    <div class="competence-card">
+      <div class="competence-header orange-bg">
+        <span>Optimiser</span>
+        <div>
+          <span class="level-label">Niveau 2</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="competence-content">
+        <div class="ce-box">
+          <h4 class="ce-title">Critères d'évaluation</h4>
+          <div class="ce-item">- CE2.01 | en formalisant et modélisant des situations complexes</div>
+          <div class="ce-item">- CE2.02 | en recensant les algorithmes et les structures de données usuels</div>
+          <div class="ce-item">- CE2.03 | en s'appuyant sur des schémas de raisonnement</div>
+          <div class="ce-item">- CE2.04 | en justifiant les choix et validant les résultats</div>
+        </div>
+
+        <h3>Sélectionner les algorithmes adéquats pour répondre à un problème donné</h3>
+
+        <div class="ac-grid">
+          <!-- AC 1 -->
+          <div class="ac-card">
+            <div class="ac-header orange-bg">
+              <span>AC 1 – Structures de données complexes</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Dans mon stage chez Izydesk, j'ai utilisé un context global combiné à un reducer pour centraliser les données de l'entreprise. Cette structure permet d'éviter les redondances d'appels API et facilite la gestion d'état sur l'ensemble du site. Elle est bien plus adaptée qu'un simple useState pour un projet e-commerce à composants multiples.</p>
+            </div>
+          </div>
+
+          <!-- AC 2 -->
+          <div class="ac-card">
+            <div class="ac-header orange-bg">
+              <span>AC 2 – Techniques algorithmiques adaptées</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Sur le projet Vote Électronique, j'ai implémenté l'algorithme de chiffrement ElGamal en Java. Ce choix permettait de garantir la sécurité des bulletins tout en respectant les contraintes d'un système client-serveur. J'ai également utilisé des structures mathématiques adaptées aux grands entiers.</p>
+            </div>
+          </div>
+
+          <!-- AC 3 -->
+          <div class="ac-card">
+            <div class="ac-header orange-bg">
+              <span>AC 3 – Sécurisation des données et du code</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Dans le site e-commerce PHP, j'ai sécurisé les formulaires contre les injections SQL à l'aide de requêtes préparées. J'ai aussi mis en place une gestion des sessions utilisateurs pour protéger les accès aux commandes.</p>
+            </div>
+          </div>
+
+          <!-- AC 4 -->
+          <div class="ac-card">
+            <div class="ac-header orange-bg">
+              <span>AC 4 – Impact environnemental et sociétal</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Lors de la Nuit de l'Info, nous avons conçu un jeu web léger avec JavaScript et Canvas API, pensé pour être accessible sur tout type d'appareil sans surconsommation de ressources. Nous avons privilégié un code simple, peu gourmand, afin de réduire l'impact énergétique du site sur le long terme.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compétence 2: Optimiser une base de données (VERT) -->
+    <div class="competence-card">
+      <div class="competence-header green-bg">
+        <span>Gérer</span>
+        <div>
+          <span class="level-label">Niveau 2</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="competence-content">
+        <div class="ce-box green-ce">
+          <h4 class="ce-title green-title">Critères d'évaluation</h4>
+          <div class="ce-item">– CE4.01 en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles</div>
+          <div class="ce-item">– CE4.02 en respectant les enjeux économiques, sociétaux et écologiques de l'utilisation du stockage de données, ainsi que les différentes infrastructures (data centers, cloud, etc.)</div>
+          <div class="ce-item">– CE4.03 en s'appuyant sur des bases mathématiques</div>
+          <div class="ce-item">– CE4.02 en assurant la cohérence et la qualité</div>
+        </div>
+
+        <h3>Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</h3>
+
+        <div class="ac-grid">
+          <!-- AC 1 -->
+          <div class="ac-card">
+            <div class="ac-header green-bg">
+              <span>AC 1 – Optimiser les modèles de données</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Dans le projet E-commerce PHP, j'ai conçu un modèle relationnel normalisé pour la gestion des utilisateurs, produits et commandes. J'ai adapté les relations pour permettre des jointures efficaces dans les requêtes critiques (panier, historique, etc.).</p>
+            </div>
+          </div>
+
+          <!-- AC 2 -->
+          <div class="ac-card">
+            <div class="ac-header green-bg">
+              <span>AC 2 – Assurer la confidentialité des données</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Lors de mon stage chez Izydesk, j'ai sécurisé les données utilisateurs en contrôlant systématiquement les erreurs API et en affichant des messages adaptés en cas d'anomalie. Le système de panier, par exemple, est protégé contre les manipulations côté client.</p>
+            </div>
+          </div>
+
+          <!-- AC 3 -->
+          <div class="ac-card">
+            <div class="ac-header green-bg">
+              <span>AC 3 – Organiser la restitution de données</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Dans le site e-commerce PHP, j'ai développé des vues HTML dynamiques pour afficher les produits, les détails de commande et les informations de compte. Côté back-end, les données étaient extraites via des classes Model en PHP puis injectées dans les View.</p>
+            </div>
+          </div>
+
+          <!-- AC 4 -->
+          <div class="ac-card">
+            <div class="ac-header green-bg">
+              <span>AC 4 – Manipuler des données hétérogènes</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Chez Izydesk, j'ai manipulé des objets JSON complexes retournés par l'API. J'ai dû filtrer dynamiquement des produits non affichables à l'aide de l'attribut isDisplayForPos, ce qui m'a obligé à adapter le rendu du front-end en fonction de la logique métier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compétence 3: Appliquer une démarche de suivi (BLEU) -->
+    <div class="competence-card">
+      <div class="competence-header blue-bg">
+        <span>Conduire</span>
+        <div>
+          <span class="level-label">Niveau 2</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="competence-content">
+        <div class="ce-box blue-ce">
+          <h4 class="ce-title blue-title">Critères d'évaluation</h4>
+          <div class="ce-item">- CE5.04 | en adoptant une démarche proactive, créative et critique</div>
+          <div class="ce-item">- CE5.02 | en respectant les règles juridiques et les normes en vigueur</div>
+          <div class="ce-item">- CE5.01 | en communiquant efficacement avec les différents acteurs d'un projet</div>
+          <div class="ce-item">- CE5.03 | en sensibilisant à une gestion éthique, responsable, durable et interculturelle</div>
+        </div>
+
+        <h3>Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs</h3>
+
+        <div class="ac-grid">
+          <!-- AC 1 -->
+          <div class="ac-card">
+            <div class="ac-header blue-bg">
+              <span>AC 1 – Identifier les processus d'une organisation</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Pendant mon stage chez Izydesk, j'ai analysé les flux de gestion de commande dans le secteur de la restauration, et intégré ces besoins métiers dans la conception du site (types de commande, options produits, allergènes, gestion d'adresses).</p>
+            </div>
+          </div>
+
+          <!-- AC 2 -->
+          <div class="ac-card">
+            <div class="ac-header blue-bg">
+              <span>AC 2 – Formaliser les besoins du client</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>J'ai rédigé un cahier des charges personnel en début de stage chez Izydesk pour structurer mes objectifs. Ce document comprenait les besoins fonctionnels comme l'ajout au panier, la navigation par catégorie ou l'internationalisation.</p>
+            </div>
+          </div>
+
+          <!-- AC 3 -->
+          <div class="ac-card">
+            <div class="ac-header blue-bg">
+              <span>AC 3 – Identifier les critères de faisabilité</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>Lors de la Nuit de l'Info, nous avons évalué dès le départ ce qui était réalisable en 24h. Nous avons réduit les ambitions techniques et nous sommes concentrés sur un MVP : un jeu simple, responsive et fonctionnel. Ce tri initial nous a permis de livrer dans les temps.</p>
+            </div>
+          </div>
+
+          <!-- AC 4 -->
+          <div class="ac-card">
+            <div class="ac-header blue-bg">
+              <span>AC 4 – Définir une démarche de suivi de projet</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ac-content">
+              <p>En stage, j'ai suivi un cycle structuré avec GitLab : création de branches, merge requests, validation par le CTO. Chaque semaine, un point d'équipe permettait de suivre l'avancement et de prioriser les tâches. Ce cadre m'a permis de livrer régulièrement du code stable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+</body>
+</html>

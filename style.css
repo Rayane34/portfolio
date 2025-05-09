@@ -344,6 +344,72 @@ li {
     padding-left: 1.25rem; /* Légèrement plus d'espace à gauche */
     padding-right: 1.75rem; /* Plus d'espace à droite */
 }
+/* Ajout de styles pour améliorer la section de présentation */
+
+/* Améliorations pour le texte de présentation */
+.intro-text {
+    max-width: 95%;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7; /* Augmentation de l'interligne pour une meilleure lisibilité */
+    font-size: 0.95rem; /* Légère réduction de la taille de police */
+}
+
+.intro-text p {
+    text-align: justify; /* Justification du texte pour une apparence plus professionnelle */
+    margin-bottom: 1rem;
+}
+
+/* Amélioration de la mise en page responsive */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: 6rem; /* Réduction du padding pour les écrans moyens */
+    }
+
+    .hero-content {
+        padding: 0 1rem; /* Ajout de padding sur les côtés */
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-text {
+        max-width: 100%;
+        font-size: 0.9rem; /* Légère réduction supplémentaire sur mobile */
+    }
+
+    .hero {
+        padding-top: 4rem; /* Réduction supplémentaire du padding pour les petits écrans */
+        gap: 1.5rem; /* Réduction de l'espace entre l'image et le contenu */
+    }
+
+    .profile-img {
+        width: 200px; /* Image plus petite sur mobile */
+        height: 200px;
+    }
+}
+
+/* Amélioration de la présentation des cartes d'info */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: var(--white);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Assure une hauteur égale */
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

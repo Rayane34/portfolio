@@ -12,102 +12,327 @@
     <div class="nav-container">
         <a href="index.html" class="nav-logo">Portfolio</a>
         <ul class="nav-links">
-            <li><a href="index.html" class="nav-link active">Accueil</a></li>
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="izydesk.html" class="nav-link">Stage Izydesk</a></li>
+            <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
             <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
             <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
-            <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
         </ul>
     </div>
 </nav>
 
 <section id="home">
     <div class="hero">
-        <div class="hero-image">
-            <img src="photoR.jpg" alt="Photo de profil" class="profile-img">
-        </div>
         <div class="hero-content">
-            <h1>Cathelin Rayane</h1>
-            <p class="title">Développeur Web Full Stack</p>
+            <div class="hero-layout">
+                <div class="hero-image">
+                    <img src="photoR.jpg" alt="Photo de profil" class="profile-img">
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-title">Cathelin Rayane</h1>
+                    <p class="hero-subtitle">Apprenti Technicien Système Réseaux</p>
 
-            <div class="intro-text">
-                <p>Généreux, plein d’énergie et toujours prêt à apporter un peu de spontanéité, j’aime transmettre ma bonne humeur dans ce que je fais. J’ai notamment participé à une association où je distribuais des repas aux personnes dans le besoin — une expérience humaine marquante qui m’a beaucoup appris sur la valeur du lien social et de l’engagement concret.
+                    <div class="intro-text">
+                        <div class="intro-highlight">
+                            <p><strong>Généreux, créatif et passionné</strong>, j'aime transmettre ma bonne humeur dans tout ce que j'entreprends.</p>
+                        </div>
 
-                    J’apprends avant tout par l’expérience. C’est en pratiquant que je progresse, que je me découvre, et que je développe mes compétences. Participer deux fois à la Nuit de l’Info en est un bon exemple : ces challenges intenses, en équipe et en temps limité, m’ont permis de sortir de ma zone de confort, d’expérimenter, de collaborer, et surtout de grandir. En décembre 2024, cette implication a été récompensée par une victoire au défi national, une belle reconnaissance de notre travail collectif.
+                        <div class="intro-points">
+                            <div class="intro-point">
+                                <i class="fas fa-heart"></i>
+                                <p>Engagement associatif avec distribution de repas aux personnes dans le besoin</p>
+                            </div>
+                            <div class="intro-point">
+                                <i class="fas fa-trophy"></i>
+                                <p>Victoire au défi national Nuit de l'Info 2024 grâce au travail d'équipe</p>
+                            </div>
+                            <div class="intro-point">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>Apprentissage par l'expérience et adaptation aux environnements dynamiques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    Ma force, c’est de savoir rester pragmatique tout en gardant une touche de créativité dans ce que j’entreprends. Curieux, à l’aise dans les échanges, je me sens à ma place dans des environnements dynamiques où je peux mettre à profit mon sens de l’observation, mon adaptabilité et mon envie constante d’apprendre par l’action.</p>
+            <!-- Section présentation complète dépliable -->
+            <div class="presentation-complete">
+                <div class="presentation-toggle" onclick="togglePresentation()">
+                    <i class="fas fa-plus"></i>
+                    <span>Voir la présentation complète</span>
+                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                </div>
+
+                <div class="presentation-content" id="presentationContent">
+                    <div class="presentation-text">
+                        <h4><i class="fas fa-user-circle"></i> Mon parcours</h4>
+                        <p>Généreux, plein d'énergie et toujours prêt à apporter un peu de spontanéité, j'aime transmettre ma bonne humeur dans ce que je fais. J'ai notamment participé à une association où je distribuais des repas aux personnes dans le besoin — une expérience humaine marquante qui m'a beaucoup appris sur la valeur du lien social et de l'engagement concret.</p>
+
+                        <h4><i class="fas fa-graduation-cap"></i> Ma philosophie d'apprentissage</h4>
+                        <p>J'apprends avant tout par l'expérience. C'est en pratiquant que je progresse, que je me découvre, et que je développe mes compétences. Participer deux fois à la Nuit de l'Info en est un bon exemple : ces challenges intenses, en équipe et en temps limité, m'ont permis de sortir de ma zone de confort, d'expérimenter, de collaborer, et surtout de grandir. En décembre 2024, cette implication a été récompensée par une victoire au défi national, une belle reconnaissance de notre travail collectif.</p>
+
+                        <h4><i class="fas fa-rocket"></i> Mes atouts</h4>
+                        <p>Ma force, c'est de savoir rester pragmatique tout en gardant une touche de créativité dans ce que j'entreprends. Curieux, à l'aise dans les échanges, je me sens à ma place dans des environnements dynamiques où je peux mettre à profit mon sens de l'observation, mon adaptabilité et mon envie constante d'apprendre par l'action.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-apprentissage">
+                <h3>Portfolio d'Apprentissage</h3>
+                <p>Présentation détaillée des compétences techniques et méthodologiques développées au cours de mes projets et de ma formation.</p>
+                <a href="apprentissage.html" class="btn btn-secondary">
+                    <i class="fas fa-graduation-cap"></i> En savoir plus
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Formation</h3>
+                <p><strong>2023 – Aujourd'hui :</strong> BUT Informatique – IUT Montpellier-Sète.</p>
+                <p>Formation orientée vers le développement de solutions informatiques sécurisées, la gestion de bases de données, et la méthodologie Agile.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Centres d'intérêt</h3>
+                <ul class="interest-list">
+                    <li>Développement web et technologies numériques : Je prends plaisir à concevoir des interfaces utilisateur intuitives et des solutions backend performantes.</li>
+                    <li>Sports collectifs : Le football et les jeux en équipe m'aident à renforcer mon esprit d'équipe et ma capacité à collaborer.</li>
+                    <li>Voyages et découverte de nouvelles cultures : Je m'intéresse à l'impact des technologies dans différentes régions du monde et j'aspire à explorer cette diversité à travers ma carrière.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Projet professionnel</h3>
+                <p>Après l'obtention de mon BUT, je souhaite poursuivre ma carrière dans le développement web et la conception d'applications innovantes. Mon objectif est de contribuer à des projets qui ont un impact positif sur la société tout en continuant à développer mes compétences techniques.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="projects-grid">
+            <div class="project-card stage-card">
+                <div class="project-header stage-header">
+                    <h3><i class="fas fa-briefcase"></i> Stage Izydesk</h3>
+                    <span class="stage-badge">STAGE PROFESSIONNEL</span>
+                </div>
+                <div class="project-content">
+                    <p>Développement d'un site e-commerce en React/Next.js chez Izydesk. Refactorisation de composants, intégration d'APIs et mise en place d'une architecture moderne.</p>
+                    <a href="izydesk.html" class="btn stage-btn">
+                        <i class="fas fa-arrow-right"></i> Découvrir mon stage
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3><i class="fas fa-trophy"></i> Nuit de l'Info 2024</h3>
+                </div>
+                <div class="project-content">
+                    <p>Création d'un site web interactif et d'un jeu 'Cookie Clicker' en JavaScript. <strong>Victoire au défi national!</strong></p>
+                    <a href="nuit-info.html" class="btn">
+                        <i class="fas fa-arrow-right"></i> En savoir plus
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3><i class="fas fa-shopping-cart"></i> Site E-commerce PHP</h3>
+                </div>
+                <div class="project-content">
+                    <p>Application web e-commerce avec architecture MVC, gestion des commandes et sécurisation avancée.</p>
+                    <a href="ecommerce.html" class="btn">
+                        <i class="fas fa-arrow-right"></i> En savoir plus
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3><i class="fas fa-vote-yea"></i> Vote Électronique</h3>
+                </div>
+                <div class="project-content">
+                    <p>Application client-serveur de vote avec chiffrement ElGamal et interface JavaFX.</p>
+                    <a href="vote.html" class="btn">
+                        <i class="fas fa-arrow-right"></i> En savoir plus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Contact déplacée en bas -->
+    <div class="section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-section">
+            <h3><i class="fas fa-address-card"></i> Me contacter</h3>
+            <p>N'hésitez pas à me contacter pour discuter d'opportunités ou pour en savoir plus sur mes projets !</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>rayane.cathelin@etu.umontpellier.fr</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+33 7 68 15 84 84</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Montpellier, France</span>
+                </div>
             </div>
 
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/rayane-cathelin-a93747264" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
+                <h4>Retrouvez-moi sur :</h4>
+                <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/rayane-cathelin-a93747264" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Rayane34" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+
+                <a href="CV_Rayane_CATHELIN (Portfolio).pdf" download class="btn cv-download">
+                    <i class="fas fa-download"></i> Télécharger mon CV
                 </a>
-                <a href="https://github.com/Rayane34" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="CV_Rayane_CATHELIN_SALON_ALTERNANCE.pdf" download class="btn">
-                    <i class="fas fa-download"></i> Télécharger CV
-                </a>
-                <div class="project-card">
-                    <h3>Portfolio d'Apprentissage</h3>
-                    <p>Présentation détaillée des compétences techniques et méthodologiques développées au cours de mes projets et de ma formation.</p>
-                    <a href="apprentissage.html" class="btn">En savoir plus →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="about-section">
-        <div class="section-content">
-            <h2>À propos de moi</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Formation</h3>
-                    <p>2023 – Aujourd'hui : BUT Informatique – IUT Montpellier-Sète.<br>
-                        Formation orientée vers le développement de solutions informatiques sécurisées, la gestion de bases de données, et la méthodologie Agile.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Centres d'intérêt</h3>
-                    <ul class="interest-list">
-                        <li>Développement web et technologies numériques : Je prends plaisir à concevoir des interfaces utilisateur intuitives et des solutions backend performantes.</li>
-                        <li>Sports collectifs : Le football et les jeux en équipe m'aident à renforcer mon esprit d'équipe et ma capacité à collaborer.</li>
-                        <li>Voyages et découverte de nouvelles cultures : Je m'intéresse à l'impact des technologies dans différentes régions du monde et j'aspire à explorer cette diversité à travers ma carrière.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h3>Projet professionnel</h3>
-                    <p>Après l'obtention de mon BUT, je souhaite poursuivre ma carrière dans le développement web et la conception d'applications innovantes. Mon objectif est de contribuer à des projets qui ont un impact positif sur la société tout en continuant à développer mes compétences techniques.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="projects-section">
-        <h2>Mes Projets</h2>
-        <div class="projects-grid">
-            <!-- Carte E-commerce -->
-            <div class="project-card">
-                <h3>Site E-commerce PHP</h3>
-                <p>Application web e-commerce avec architecture MVC, gestion des commandes et sécurisation avancée.</p>
-                <a href="ecommerce.html" class="btn">En savoir plus →</a>
-            </div>
-
-            <!-- Carte Vote Électronique -->
-            <div class="project-card">
-                <h3>Vote Électronique</h3>
-                <p>Application client-serveur de vote avec chiffrement ElGamal et interface JavaFX.</p>
-                <a href="vote.html" class="btn">En savoir plus →</a>
-            </div>
-
-            <!-- Carte Nuit de l'Info -->
-            <div class="project-card">
-                <h3>Nuit de l'Info 2024</h3>
-                <p>Création d'un site web interactif et d'un jeu 'Cookie Clicker' en JavaScript.</p>
-                <a href="nuit-info.html" class="btn">En savoir plus →</a>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Styles spécifiques pour la carte de stage */
+    .stage-card {
+        border: 2px solid transparent;
+        background: linear-gradient(var(--white), var(--white)) padding-box,
+        linear-gradient(135deg, #667eea, #764ba2) border-box;
+        position: relative;
+        overflow: visible;
+    }
+
+    .stage-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+    }
+
+    .stage-badge {
+        position: absolute;
+        top: -10px;
+        right: 15px;
+        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .stage-btn {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border: none;
+    }
+
+    .stage-btn:hover {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .stage-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+    }
+
+    /* Responsive pour la grille de projets */
+    @media (max-width: 1200px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stage-badge {
+            font-size: 0.6rem;
+            padding: 0.2rem 0.6rem;
+            top: -8px;
+            right: 10px;
+        }
+    }
+</style>
+
+<script>
+    function togglePresentation() {
+        const toggle = document.querySelector('.presentation-toggle');
+        const content = document.getElementById('presentationContent');
+        const span = toggle.querySelector('span');
+
+        toggle.classList.toggle('active');
+        content.classList.toggle('active');
+
+        // CORRECTION: Gestion correcte du texte du bouton
+        if (toggle.classList.contains('active')) {
+            span.textContent = 'Masquer la présentation';
+        } else {
+            span.textContent = 'Voir la présentation complète';
+        }
+    }
+
+    // Animation au scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observer les cartes
+    document.querySelectorAll('.info-card, .project-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease-out';
+        observer.observe(card);
+    });
+
+    // Navigation smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>

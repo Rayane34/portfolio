@@ -13,14 +13,17 @@
         <a href="index.html" class="nav-logo">Portfolio</a>
         <ul class="nav-links">
             <li><a href="index.html" class="nav-link">Accueil</a></li>
-            <li><a href="ecommerce.html" class="nav-link active">E-commerce PHP</a></li>
-            <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
+            <li><a href="izydesk.html" class="nav-link">Stage Izydesk</a></li>
             <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
+            <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
+            <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
         </ul>
     </div>
 </nav>
 
 <section class="project-detail">
+    <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+
     <h2>Site E-commerce PHP</h2>
     <div class="project-section">
         <div>
@@ -29,7 +32,7 @@
                 Le projet comprend la gestion des commandes, la sécurisation des formulaires et une base de données SQL.</p>
 
             <div class="tech-box">
-                <h3>Technologies utilisées</h3>
+                <h3><i class="fas fa-code"></i> Technologies utilisées</h3>
                 <ul>
                     <li>PHP (Architecture MVC)</li>
                     <li>MySQL</li>
@@ -37,37 +40,79 @@
                     <li>Bootstrap</li>
                 </ul>
             </div>
+
             <div class="screenshot-container">
-                <img src="kawaimain.png" alt="Capture d'écran du jeu" class="project-screenshot">
+                <img src="kawaimain.png" alt="Page d'accueil du site e-commerce" class="project-screenshot">
             </div>
             <div class="screenshot-container">
-                <img src="kawailiste.png" alt="Capture d'écran du jeu" class="project-screenshot">
+                <img src="kawailiste.png" alt="Liste des produits" class="project-screenshot">
             </div>
             <div class="screenshot-container">
-                <img src="kawaidetail.png" alt="Capture d'écran du jeu" class="project-screenshot">
+                <img src="kawaidetail.png" alt="Détail d'un produit" class="project-screenshot">
             </div>
             <div class="screenshot-container">
-                <img src="kawaipanier.png" alt="Capture d'écran du jeu" class="project-screenshot">
+                <img src="kawaipanier.png" alt="Panier d'achat" class="project-screenshot">
             </div>
         </div>
 
         <div>
             <h3>Apprentissages</h3>
-            <ul>
-                <li>Maîtrise du pattern MVC en PHP</li>
-                <li>Sécurisation des données et gestion des sessions</li>
-                <li>Conception et optimisation de bases de données SQL</li>
-                <li>Développement d'interfaces utilisateur responsives</li>
-            </ul>
+            <div class="tech-box">
+                <h3><i class="fas fa-lightbulb"></i> Compétences développées</h3>
+                <ul>
+                    <li>Maîtrise du pattern MVC en PHP</li>
+                    <li>Sécurisation des données et gestion des sessions</li>
+                    <li>Conception et optimisation de bases de données SQL</li>
+                    <li>Développement d'interfaces utilisateur responsives</li>
+                </ul>
+            </div>
+
+            <div class="tech-box">
+                <h3><i class="fas fa-tools"></i> Fonctionnalités implémentées</h3>
+                <ul>
+                    <li>Système d'authentification utilisateur</li>
+                    <li>Gestion complète du panier d'achat</li>
+                    <li>Interface d'administration</li>
+                    <li>Gestion des commandes et des stocks</li>
+                    <li>Système de recherche et filtrage</li>
+                </ul>
+            </div>
 
             <div class="project-links">
-
                 <a href="https://webinfo.iutmontp.univ-montp2.fr/~duongr/kawaiiToys/site/web/controleurFrontal.php" class="btn" target="_blank">
                     <i class="fas fa-external-link-alt"></i> Visiter le site
+                </a>
+                <a href="https://github.com/Rayane34/kawaii-toys" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-github"></i> Code source
                 </a>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    // Animation au scroll pour les images
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observer les conteneurs d'images
+    document.querySelectorAll('.screenshot-container').forEach(container => {
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(30px)';
+        container.style.transition = 'all 0.6s ease-out';
+        observer.observe(container);
+    });
+</script>
 </body>
 </html>

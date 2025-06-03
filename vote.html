@@ -13,45 +13,208 @@
         <a href="index.html" class="nav-logo">Portfolio</a>
         <ul class="nav-links">
             <li><a href="index.html" class="nav-link">Accueil</a></li>
-            <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
-            <li><a href="vote.html" class="nav-link active">Vote Électronique</a></li>
+            <li><a href="izydesk.html" class="nav-link">Stage Izydesk</a></li>
             <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
+            <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
+            <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
         </ul>
     </div>
 </nav>
 
 <section class="project-detail">
+    <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+
     <h2>Application de Vote Électronique</h2>
     <div class="project-section">
         <div>
             <h3>Contexte</h3>
             <p>Développement d'une application client-serveur sécurisée pour le vote électronique,
-                utilisant le chiffrement ElGamal et une interface en JavaFX.</p>
+                utilisant le chiffrement ElGamal et une interface en JavaFX. Ce projet met l'accent sur la sécurité
+                cryptographique et l'intégrité des données de vote.</p>
 
             <div class="tech-box">
-                <h3>Technologies utilisées</h3>
+                <h3><i class="fas fa-code"></i> Technologies utilisées</h3>
                 <ul>
-                    <li>Java</li>
-                    <li>JavaFX</li>
-                    <li>Sockets Sécurisées</li>
-                    <li>Chiffrement ElGamal </li>
+                    <li>Java (Backend & Frontend)</li>
+                    <li>JavaFX (Interface graphique)</li>
+                    <li>Sockets Sécurisées (SSL/TLS)</li>
+                    <li>Chiffrement ElGamal</li>
+                    <li>Cryptographie asymétrique</li>
                 </ul>
             </div>
 
-
+            <div class="tech-box">
+                <h3><i class="fas fa-shield-alt"></i> Sécurité implémentée</h3>
+                <ul>
+                    <li>Chiffrement homomorphe ElGamal</li>
+                    <li>Génération de clés cryptographiques</li>
+                    <li>Authentification des votants</li>
+                    <li>Protection contre la double-vote</li>
+                    <li>Anonymat des bulletins</li>
+                </ul>
+            </div>
         </div>
+
         <div>
-            <h3>Apprentissages</h3>
+            <h3>Architecture du système</h3>
+            <div class="tech-box">
+                <h3><i class="fas fa-sitemap"></i> Composants principaux</h3>
+                <ul>
+                    <li>Serveur de vote centralisé</li>
+                    <li>Client de vote JavaFX</li>
+                    <li>Module de chiffrement/déchiffrement</li>
+                    <li>Base de données sécurisée</li>
+                    <li>Interface d'administration</li>
+                </ul>
+            </div>
+
+            <div class="tech-box">
+                <h3><i class="fas fa-lightbulb"></i> Apprentissages</h3>
+                <ul>
+                    <li>Implémentation du chiffrement ElGamal</li>
+                    <li>Développement d'interfaces graphiques avec JavaFX</li>
+                    <li>Architecture client-serveur robuste</li>
+                    <li>Sécurisation des données sensibles</li>
+                    <li>Gestion des grands nombres en cryptographie</li>
+                </ul>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/Rayane34/vote-electronique" class="btn" target="_blank">
+                    <i class="fab fa-github"></i> Code source
+                </a>
+                <a href="#" class="btn btn-secondary" onclick="showDemoModal()">
+                    <i class="fas fa-play"></i> Voir la démo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour la démo -->
+    <div id="demoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeDemoModal()">&times;</span>
+            <h3>Démonstration du système de vote</h3>
+            <p>Cette application de vote électronique utilise le chiffrement ElGamal pour garantir :</p>
             <ul>
-                <li>Implémentation du chiffrement ElGamal</li>
-                <li>Développement d'interfaces graphiques avec JavaFX</li>
-                <li>Architecture client-serveur</li>
-                <li>Sécurisation des données sensibles</li>
+                <li><strong>Confidentialité :</strong> Les votes sont chiffrés individuellement</li>
+                <li><strong>Intégrité :</strong> Impossible de modifier les votes sans détection</li>
+                <li><strong>Anonymat :</strong> Aucun lien entre l'identité du votant et son choix</li>
+                <li><strong>Vérifiabilité :</strong> Possibilité de vérifier le bon décompte</li>
             </ul>
-
-
+            <p><em>Note : Le code source complet est disponible sur GitHub avec la documentation technique.</em></p>
         </div>
     </div>
 </section>
+
+<style>
+    /* Style pour le modal */
+    .modal {
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background-color: var(--white);
+        margin: 10% auto;
+        padding: 2rem;
+        border-radius: 20px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: var(--card-shadow);
+        position: relative;
+        animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .close {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        color: var(--gray-600);
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .close:hover {
+        color: var(--primary-color);
+    }
+
+    .modal-content h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .modal-content ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .modal-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+</style>
+
+<script>
+    function showDemoModal() {
+        document.getElementById('demoModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemoModal() {
+        document.getElementById('demoModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Fermer le modal en cliquant à l'extérieur
+    window.onclick = function(event) {
+        const modal = document.getElementById('demoModal');
+        if (event.target === modal) {
+            closeDemoModal();
+        }
+    }
+
+    // Animation au scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observer les tech-box
+    document.querySelectorAll('.tech-box').forEach(box => {
+        box.style.opacity = '0';
+        box.style.transform = 'translateY(30px)';
+        box.style.transition = 'all 0.6s ease-out';
+        observer.observe(box);
+    });
+</script>
 </body>
 </html>

@@ -6,188 +6,6 @@
   <title>Portfolio d'Apprentissage</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .competence-section {
-      margin-bottom: 3rem;
-    }
-
-    .competence-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .competence-card {
-      border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .competence-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    .competence-header {
-      padding: 1.5rem;
-      color: white;
-      font-weight: 600;
-      font-size: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .competence-header i:last-child {
-      transition: transform 0.3s ease;
-    }
-
-    .competence-header.active i:last-child {
-      transform: rotate(180deg);
-    }
-
-    .orange-bg {
-      background-color: #e67e22;
-    }
-
-    .green-bg {
-      background-color: #7cb342;
-    }
-
-    .blue-bg {
-      background-color: #1a237e;
-    }
-
-    .competence-content {
-      background-color: white;
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease;
-    }
-
-    .competence-content.active {
-      padding: 1.5rem;
-      max-height: 2000px;
-    }
-
-    .ce-box {
-      background-color: #fff8f0;
-      border: 1px solid #ffecd9;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .green-ce {
-      background-color: #f1f8e9;
-      border: 1px solid #dcedc8;
-    }
-
-    .blue-ce {
-      background-color: #e8eaf6;
-      border: 1px solid #c5cae9;
-    }
-
-    .ce-item {
-      margin-bottom: 0.5rem;
-      color: #424242;
-    }
-
-    .ce-title {
-      color: #e67e22;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .green-title {
-      color: #7cb342;
-    }
-
-    .blue-title {
-      color: #1a237e;
-    }
-
-    .ac-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .ac-card {
-      border-radius: 0.5rem;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-
-    .ac-header {
-      padding: 1rem;
-      color: white;
-      font-weight: 500;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .ac-header i:last-child {
-      transition: transform 0.3s ease;
-    }
-
-    .ac-header.active i:last-child {
-      transform: rotate(180deg);
-    }
-
-    .ac-content {
-      background-color: white;
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease;
-    }
-
-    .ac-content.active {
-      padding: 1.25rem;
-      max-height: 1000px;
-    }
-
-    .level-label {
-      background-color: rgba(255, 255, 255, 0.15);
-      padding: 0.25rem 0.75rem;
-      border-radius: 2rem;
-      font-size: 0.85rem;
-      margin-right: 0.5rem;
-    }
-
-    .retour-btn {
-      display: inline-flex;
-      align-items: center;
-      margin-bottom: 2rem;
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .retour-btn i {
-      margin-right: 0.5rem;
-    }
-
-    .retour-btn:hover {
-      color: var(--primary-dark);
-    }
-
-    @media (min-width: 768px) {
-      .ac-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Gestion du clic sur les en-têtes de compétence
@@ -215,6 +33,29 @@
           }
         });
       });
+
+      // Animation au scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observer les cartes de compétences
+      document.querySelectorAll('.competence-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease-out';
+        observer.observe(card);
+      });
     });
   </script>
 </head>
@@ -224,9 +65,10 @@
     <a href="index.html" class="nav-logo">Portfolio</a>
     <ul class="nav-links">
       <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="izydesk.html" class="nav-link">Stage Izydesk</a></li>
+      <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
       <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
       <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
-      <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
     </ul>
   </div>
 </nav>
@@ -234,14 +76,16 @@
 <section class="project-detail">
   <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
 
-  <h2>Portfolio d'Apprentissage</h2>
-  <p>Ce portfolio présente les compétences que j'ai développées au cours de ma formation et de mes projets professionnels. Il illustre comment j'ai mis en œuvre ces compétences dans des situations concrètes.</p>
+  <div class="apprentissage-header">
+    <h2><i class="fas fa-graduation-cap"></i> Portfolio d'Apprentissage</h2>
+    <p class="apprentissage-intro">Ce portfolio présente les compétences que j'ai développées au cours de ma formation et de mes projets professionnels. Il illustre comment j'ai mis en œuvre ces compétences dans des situations concrètes à travers des exemples pratiques et des réalisations tangibles.</p>
+  </div>
 
   <div class="competence-grid">
-    <!-- Compétence 1: Sélectionner les algorithmes (ORANGE) -->
+    <!-- Compétence 1: Optimiser (ORANGE) -->
     <div class="competence-card">
       <div class="competence-header orange-bg">
-        <span>Optimiser</span>
+        <span><i class="fas fa-cogs"></i> Optimiser</span>
         <div>
           <span class="level-label">Niveau 2</span>
           <i class="fas fa-chevron-down"></i>
@@ -249,11 +93,11 @@
       </div>
       <div class="competence-content">
         <div class="ce-box">
-          <h4 class="ce-title">Critères d'évaluation</h4>
-          <div class="ce-item">- CE2.01 | en formalisant et modélisant des situations complexes</div>
-          <div class="ce-item">- CE2.02 | en recensant les algorithmes et les structures de données usuels</div>
-          <div class="ce-item">- CE2.03 | en s'appuyant sur des schémas de raisonnement</div>
-          <div class="ce-item">- CE2.04 | en justifiant les choix et validant les résultats</div>
+          <h4 class="ce-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+          <div class="ce-item">CE2.01 | en formalisant et modélisant des situations complexes</div>
+          <div class="ce-item">CE2.02 | en recensant les algorithmes et les structures de données usuels</div>
+          <div class="ce-item">CE2.03 | en s'appuyant sur des schémas de raisonnement</div>
+          <div class="ce-item">CE2.04 | en justifiant les choix et validant les résultats</div>
         </div>
 
         <h3>Sélectionner les algorithmes adéquats pour répondre à un problème donné</h3>
@@ -262,7 +106,7 @@
           <!-- AC 1 -->
           <div class="ac-card">
             <div class="ac-header orange-bg">
-              <span>AC 1 – Structures de données complexes</span>
+              <span><i class="fas fa-database"></i> AC 1 – Structures de données complexes</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -273,7 +117,7 @@
           <!-- AC 2 -->
           <div class="ac-card">
             <div class="ac-header orange-bg">
-              <span>AC 2 – Techniques algorithmiques adaptées</span>
+              <span><i class="fas fa-algorithm"></i> AC 2 – Techniques algorithmiques adaptées</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -284,7 +128,7 @@
           <!-- AC 3 -->
           <div class="ac-card">
             <div class="ac-header orange-bg">
-              <span>AC 3 – Sécurisation des données et du code</span>
+              <span><i class="fas fa-shield-alt"></i> AC 3 – Sécurisation des données et du code</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -295,7 +139,7 @@
           <!-- AC 4 -->
           <div class="ac-card">
             <div class="ac-header orange-bg">
-              <span>AC 4 – Impact environnemental et sociétal</span>
+              <span><i class="fas fa-leaf"></i> AC 4 – Impact environnemental et sociétal</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -306,10 +150,10 @@
       </div>
     </div>
 
-    <!-- Compétence 2: Optimiser une base de données (VERT) -->
+    <!-- Compétence 2: Gérer (VERT) -->
     <div class="competence-card">
       <div class="competence-header green-bg">
-        <span>Gérer</span>
+        <span><i class="fas fa-server"></i> Gérer</span>
         <div>
           <span class="level-label">Niveau 2</span>
           <i class="fas fa-chevron-down"></i>
@@ -317,11 +161,11 @@
       </div>
       <div class="competence-content">
         <div class="ce-box green-ce">
-          <h4 class="ce-title green-title">Critères d'évaluation</h4>
-          <div class="ce-item">– CE4.01 en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles</div>
-          <div class="ce-item">– CE4.02 en respectant les enjeux économiques, sociétaux et écologiques de l'utilisation du stockage de données, ainsi que les différentes infrastructures (data centers, cloud, etc.)</div>
-          <div class="ce-item">– CE4.03 en s'appuyant sur des bases mathématiques</div>
-          <div class="ce-item">– CE4.02 en assurant la cohérence et la qualité</div>
+          <h4 class="ce-title green-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+          <div class="ce-item">CE4.01 en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles</div>
+          <div class="ce-item">CE4.02 en respectant les enjeux économiques, sociétaux et écologiques de l'utilisation du stockage de données</div>
+          <div class="ce-item">CE4.03 en s'appuyant sur des bases mathématiques</div>
+          <div class="ce-item">CE4.04 en assurant la cohérence et la qualité</div>
         </div>
 
         <h3>Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</h3>
@@ -330,7 +174,7 @@
           <!-- AC 1 -->
           <div class="ac-card">
             <div class="ac-header green-bg">
-              <span>AC 1 – Optimiser les modèles de données</span>
+              <span><i class="fas fa-database"></i> AC 1 – Optimiser les modèles de données</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -341,7 +185,7 @@
           <!-- AC 2 -->
           <div class="ac-card">
             <div class="ac-header green-bg">
-              <span>AC 2 – Assurer la confidentialité des données</span>
+              <span><i class="fas fa-user-shield"></i> AC 2 – Assurer la confidentialité des données</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -352,7 +196,7 @@
           <!-- AC 3 -->
           <div class="ac-card">
             <div class="ac-header green-bg">
-              <span>AC 3 – Organiser la restitution de données</span>
+              <span><i class="fas fa-chart-bar"></i> AC 3 – Organiser la restitution de données</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -363,7 +207,7 @@
           <!-- AC 4 -->
           <div class="ac-card">
             <div class="ac-header green-bg">
-              <span>AC 4 – Manipuler des données hétérogènes</span>
+              <span><i class="fas fa-exchange-alt"></i> AC 4 – Manipuler des données hétérogènes</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -374,10 +218,10 @@
       </div>
     </div>
 
-    <!-- Compétence 3: Appliquer une démarche de suivi (BLEU) -->
+    <!-- Compétence 3: Conduire (BLEU) -->
     <div class="competence-card">
       <div class="competence-header blue-bg">
-        <span>Conduire</span>
+        <span><i class="fas fa-project-diagram"></i> Conduire</span>
         <div>
           <span class="level-label">Niveau 2</span>
           <i class="fas fa-chevron-down"></i>
@@ -385,11 +229,11 @@
       </div>
       <div class="competence-content">
         <div class="ce-box blue-ce">
-          <h4 class="ce-title blue-title">Critères d'évaluation</h4>
-          <div class="ce-item">- CE5.04 | en adoptant une démarche proactive, créative et critique</div>
-          <div class="ce-item">- CE5.02 | en respectant les règles juridiques et les normes en vigueur</div>
-          <div class="ce-item">- CE5.01 | en communiquant efficacement avec les différents acteurs d'un projet</div>
-          <div class="ce-item">- CE5.03 | en sensibilisant à une gestion éthique, responsable, durable et interculturelle</div>
+          <h4 class="ce-title blue-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+          <div class="ce-item">CE5.04 | en adoptant une démarche proactive, créative et critique</div>
+          <div class="ce-item">CE5.02 | en respectant les règles juridiques et les normes en vigueur</div>
+          <div class="ce-item">CE5.01 | en communiquant efficacement avec les différents acteurs d'un projet</div>
+          <div class="ce-item">CE5.03 | en sensibilisant à une gestion éthique, responsable, durable et interculturelle</div>
         </div>
 
         <h3>Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs</h3>
@@ -398,7 +242,7 @@
           <!-- AC 1 -->
           <div class="ac-card">
             <div class="ac-header blue-bg">
-              <span>AC 1 – Identifier les processus d'une organisation</span>
+              <span><i class="fas fa-sitemap"></i> AC 1 – Identifier les processus d'une organisation</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -409,7 +253,7 @@
           <!-- AC 2 -->
           <div class="ac-card">
             <div class="ac-header blue-bg">
-              <span>AC 2 – Formaliser les besoins du client</span>
+              <span><i class="fas fa-file-contract"></i> AC 2 – Formaliser les besoins du client</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -420,7 +264,7 @@
           <!-- AC 3 -->
           <div class="ac-card">
             <div class="ac-header blue-bg">
-              <span>AC 3 – Identifier les critères de faisabilité</span>
+              <span><i class="fas fa-tasks"></i> AC 3 – Identifier les critères de faisabilité</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -431,7 +275,7 @@
           <!-- AC 4 -->
           <div class="ac-card">
             <div class="ac-header blue-bg">
-              <span>AC 4 – Définir une démarche de suivi de projet</span>
+              <span><i class="fas fa-chart-line"></i> AC 4 – Définir une démarche de suivi de projet</span>
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="ac-content">
@@ -442,9 +286,63 @@
       </div>
     </div>
   </div>
-  </div>
-  </div>
 </section>
+
+<style>
+  /* Styles spécifiques pour la page d'apprentissage */
+  .apprentissage-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--white), #f8fafc);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .apprentissage-header h2 {
+    font-size: 2.5rem;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+
+  .apprentissage-header h2 i {
+    margin-right: 1rem;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .apprentissage-intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .apprentissage-header {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .apprentissage-header h2 {
+      font-size: 2rem;
+    }
+
+    .apprentissage-intro {
+      font-size: 1rem;
+    }
+
+    .ac-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
 </body>
 </html>

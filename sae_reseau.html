@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vote Électronique - Portfolio</title>
+    <title>SAÉ Réseau Sécurisé - Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,176 +35,136 @@
 <section class="project-detail">
     <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
 
-    <h2>Application de Vote Électronique</h2>
-    <div class="project-section">
-        <div>
-            <h3>Contexte</h3>
-            <p>Développement d'une application client-serveur sécurisée pour le vote électronique,
-                utilisant le chiffrement ElGamal et une interface en JavaFX. Ce projet met l'accent sur la sécurité
-                cryptographique et l'intégrité des données de vote.</p>
-
-            <div class="tech-box">
-                <h3><i class="fas fa-code"></i> Technologies utilisées</h3>
-                <ul>
-                    <li>Java (Backend & Frontend)</li>
-                    <li>JavaFX (Interface graphique)</li>
-                    <li>Sockets Sécurisées (SSL/TLS)</li>
-                    <li>Chiffrement ElGamal</li>
-                    <li>Cryptographie asymétrique</li>
-                </ul>
-            </div>
-
-            <div class="tech-box">
-                <h3><i class="fas fa-shield-alt"></i> Sécurité implémentée</h3>
-                <ul>
-                    <li>Chiffrement homomorphe ElGamal</li>
-                    <li>Génération de clés cryptographiques</li>
-                    <li>Authentification des votants</li>
-                    <li>Protection contre la double-vote</li>
-                    <li>Anonymat des bulletins</li>
-                </ul>
-            </div>
-        </div>
-
-        <div>
-            <h3>Architecture du système</h3>
-            <div class="tech-box">
-                <h3><i class="fas fa-sitemap"></i> Composants principaux</h3>
-                <ul>
-                    <li>Serveur de vote centralisé</li>
-                    <li>Client de vote JavaFX</li>
-                    <li>Module de chiffrement/déchiffrement</li>
-                    <li>Base de données sécurisée</li>
-                    <li>Interface d'administration</li>
-                </ul>
-            </div>
-
-            <div class="tech-box">
-                <h3><i class="fas fa-lightbulb"></i> Apprentissages</h3>
-                <ul>
-                    <li>Implémentation du chiffrement ElGamal</li>
-                    <li>Développement d'interfaces graphiques avec JavaFX</li>
-                    <li>Architecture client-serveur robuste</li>
-                    <li>Sécurisation des données sensibles</li>
-                    <li>Gestion des grands nombres en cryptographie</li>
-                </ul>
-            </div>
-
-            <div class="project-links">
-                <a href="https://github.com/Rayane34/vote-electronique" class="btn" target="_blank">
-                    <i class="fab fa-github"></i> Code source
-                </a>
-                <a href="#" class="btn btn-secondary" onclick="showDemoModal()">
-                    <i class="fas fa-play"></i> Voir la démo
-                </a>
-            </div>
-        </div>
+    <div class="sae-banner">
+        <h2>Infrastructure Réseau Sécurisée & Supervision</h2>
+        <p class="sae-duration">Septembre 2025 – Janvier 2026 • Projet en Binôme</p>
     </div>
 
-    <!-- Modal pour la démo -->
-    <div id="demoModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeDemoModal()">&times;</span>
-            <h3>Démonstration du système de vote</h3>
-            <p>Cette application de vote électronique utilise le chiffrement ElGamal pour garantir :</p>
-            <ul>
-                <li><strong>Confidentialité :</strong> Les votes sont chiffrés individuellement</li>
-                <li><strong>Intégrité :</strong> Impossible de modifier les votes sans détection</li>
-                <li><strong>Anonymat :</strong> Aucun lien entre l'identité du votant et son choix</li>
-                <li><strong>Vérifiabilité :</strong> Possibilité de vérifier le bon décompte</li>
-            </ul>
-            <p><em>Note : Le code source complet est disponible sur GitHub avec la documentation technique.</em></p>
+    <div class="project-section">
+        <div>
+            <h3>Contexte & Objectifs</h3>
+            <p>Conception, déploiement et sécurisation complète d'une infrastructure réseau basée sur des environnements Linux. Ce projet met l'accent sur l'<strong>authentification centralisée (SSO)</strong>, le <strong>partage de fichiers sécurisé</strong> et l'<strong>hypervision en temps réel</strong>.</p>
+
+            <div class="tech-box network-box">
+                <h3><i class="fas fa-microchip"></i> Composants et Technologies Clés</h3>
+                <ul>
+                    <li>OpenLDAP (Annuaire centralisé)</li>
+                    <li>Authentik (Single Sign-On / SSO)</li>
+                    <li>Nextcloud (Serveur de fichiers)</li>
+                    <li>Grafana & Prometheus (Hypervision)</li>
+                    <li>Scripts Shell / API (Automatisation)</li>
+                    <li>Linux (Debian/Ubuntu)</li>
+                </ul>
+            </div>
+
+            <div class="tech-box security-box">
+                <h3><i class="fas fa-shield-alt"></i> Sécurité et Cybersécurité</h3>
+                <ul>
+                    <li>Application de politiques de sécurité (Pare-feu, TLS)</li>
+                    <li>Durcissement des systèmes (Hardening)</li>
+                    <li>Tests d’intrusion (Kali Linux)</li>
+                    <li>Rédaction de rapports d’audit de sécurité</li>
+                    <li>Gestion des comptes par scripts sécurisés</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h3>Réalisations et Apprentissages</h3>
+            <div class="tech-box">
+                <h3><i class="fas fa-project-diagram"></i> Architecture Déployée</h3>
+                <ul>
+                    <li>Déploiement de l'annuaire <strong>OpenLDAP</strong></li>
+                    <li>Intégration et configuration de l'<strong>Authentification Unique (SSO)</strong> via Authentik</li>
+                    <li>Intégration complète de <strong>Nextcloud</strong> au domaine LDAP</li>
+                    <li>Mise en place de la pile de supervision <strong>Prometheus/Grafana</strong> pour le suivi des services</li>
+                </ul>
+            </div>
+
+            <div class="tech-box">
+                <h3><i class="fas fa-cogs"></i> Maîtrise Systèmes & Réseaux</h3>
+                <ul>
+                    <li>Automatisation de la gestion des comptes utilisateurs (Bash, API)</li>
+                    <li>Compréhension approfondie du protocole <strong>LDAP</strong> et du <strong>SSO</strong></li>
+                    <li>Déploiement et sécurisation de services web critiques</li>
+                    <li>Interprétation des métriques de supervision pour la performance</li>
+                </ul>
+            </div>
+            <div class="screenshot-container">
+                <img src="authentik1.png" alt="Authentik" class="project-screenshot">
+            </div>
+            <div class="project-links">
+                <a href="Copie de CAHIER_DES_CHARGES_SAE_CATHELIN _MAURIN_MARTIN-1.pdf" class="btn sae-btn">
+                    <i class="fas fa-file-pdf"></i> Voir le Rapport
+                </a>
+                <a href="#" class="btn btn-secondary" onclick="alert('Démonstration indisponible en ligne pour des raisons de sécurité.');">
+                    <i class="fas fa-play"></i> Démo (Sur demande)
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
-    /* Style pour le modal */
-    .modal {
-        position: fixed;
-        z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.5);
-        backdrop-filter: blur(5px);
-    }
-
-    .modal-content {
-        background-color: var(--white);
-        margin: 10% auto;
-        padding: 2rem;
+    /* Styles spécifiques pour la page SAE Réseau */
+    .sae-banner {
+        background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%); /* Bleu très foncé pour le côté système/réseau */
+        color: white;
+        padding: 3rem 2rem;
         border-radius: 20px;
-        width: 80%;
-        max-width: 600px;
-        box-shadow: var(--card-shadow);
+        text-align: center;
+        margin-bottom: 3rem;
+        box-shadow: 0 15px 35px rgba(30, 58, 138, 0.3);
+    }
+
+    .sae-banner h2 {
+        font-size: 2.2rem;
+        margin: 1rem 0 0.5rem;
         position: relative;
-        animation: modalSlideIn 0.3s ease-out;
+        z-index: 2;
     }
 
-    @keyframes modalSlideIn {
-        from {
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .sae-duration {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        color : white
     }
 
-    .close {
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        color: var(--gray-600);
-        font-size: 2rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.3s;
+    /* Boîte pour les technologies réseau/système */
+    .network-box {
+        background: linear-gradient(135deg, #e0f7fa, #b3e5fc); /* Bleu clair/cyan */
+        border: 2px solid #00bcd4;
     }
 
-    .close:hover {
-        color: var(--primary-color);
+    .network-box h3 {
+        color: #00838f;
     }
 
-    .modal-content h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
+    /* Boîte pour la sécurité */
+    .security-box {
+        background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Rose pâle/magenta pour le côté sécurité */
+        border: 2px solid #e91e63;
     }
 
-    .modal-content ul {
-        margin: 1rem 0;
-        padding-left: 1.5rem;
+    .security-box h3 {
+        color: #c2185b;
     }
 
-    .modal-content li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
+    .sae-btn {
+        background: linear-gradient(135deg, #1e3a8a, #172554);
+        border: none;
+    }
+
+    .sae-btn:hover {
+        background: linear-gradient(135deg, #172554, #1e3a8a);
     }
 </style>
 
 <script>
-    function showDemoModal() {
-        document.getElementById('demoModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeDemoModal() {
-        document.getElementById('demoModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    // Fermer le modal en cliquant à l'extérieur
-    window.onclick = function(event) {
-        const modal = document.getElementById('demoModal');
-        if (event.target === modal) {
-            closeDemoModal();
-        }
-    }
-
-    // Animation au scroll
+    // Animation au scroll pour les tech-box
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'

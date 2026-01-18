@@ -8,15 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
+<nav class="modern-nav">
     <div class="nav-container">
-        <a href="index.html" class="nav-logo">Portfolio</a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="nav-link">Accueil</a></li>
-            <li><a href="izydesk.html" class="nav-link">Stage Izydesk</a></li>
-            <li><a href="nuit-info.html" class="nav-link">Nuit de l'Info</a></li>
-            <li><a href="ecommerce.html" class="nav-link">E-commerce PHP</a></li>
-            <li><a href="vote.html" class="nav-link">Vote Électronique</a></li>
+        <a href="index.html" class="nav-logo">
+            <i class="fas fa-code"></i>
+            <span>Rayane Cathelin</span>
+        </a>
+        <button class="nav-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="izydesk.html" class="nav-link"><i class="fas fa-briefcase"></i> Stage</a></li>
+            <li><a href="borg_backup.html" class="nav-link"><i class="fas fa-hdd"></i> Borg</a></li>
+            <li><a href="nuit-info.html" class="nav-link"><i class="fas fa-trophy"></i> Nuit Info</a></li>
+            <li><a href="terraform_ansible.html" class="nav-link"><i class="fas fa-robot"></i> IaC</a></li>
+            <li><a href="sae_reseau.html" class="nav-link"><i class="fas fa-server"></i> Infra</a></li>
+            <li><a href="vote.html" class="nav-link"><i class="fas fa-vote-yea"></i> Vote</a></li>
+            <li><a href="ecommerce.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Shop</a></li>
         </ul>
     </div>
 </nav>
@@ -113,6 +124,60 @@
         container.style.transition = 'all 0.6s ease-out';
         observer.observe(container);
     });
+        // ============================================
+        // NAVIGATION MENU - Fonctions JavaScript
+        // À ajouter dans la balise <script> de chaque page
+        // ============================================
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        }
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.querySelector('.nav-toggle').classList.remove('active');
+                }
+            });
+        });
+
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.modern-nav');
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+        });
+
+        // Mettre en évidence la page active
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+        });
+        });
+
+        // Effet de scroll pour la navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.modern-nav');
+            if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+        });
 </script>
 </body>
 </html>

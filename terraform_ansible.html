@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatisation IaC - Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="modern-nav">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <i class="fas fa-code"></i>
+            <span>Rayane Cathelin</span>
+        </a>
+        <button class="nav-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="izydesk.html" class="nav-link"><i class="fas fa-briefcase"></i> Stage</a></li>
+            <li><a href="borg_backup.html" class="nav-link"><i class="fas fa-hdd"></i> Borg</a></li>
+            <li><a href="nuit-info.html" class="nav-link"><i class="fas fa-trophy"></i> Nuit Info</a></li>
+            <li><a href="terraform_ansible.html" class="nav-link"><i class="fas fa-robot"></i> IaC</a></li>
+            <li><a href="sae_reseau.html" class="nav-link"><i class="fas fa-server"></i> Infra</a></li>
+            <li><a href="vote.html" class="nav-link"><i class="fas fa-vote-yea"></i> Vote</a></li>
+            <li><a href="ecommerce.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="project-detail">
+    <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+
+    <div class="devops-banner">
+        <h2>Automatisation d'Infrastructure avec Terraform & Ansible</h2>
+        <p class="devops-duration">Semestre 5 • Projet DevOps</p>
+    </div>
+
+    <div class="project-section">
+        <div>
+            <h3>Contexte & Objectifs</h3>
+            <p>Ce projet vise à concevoir une <strong>solution d'automatisation complète</strong> permettant de déployer, tester et supprimer un environnement applicatif de manière <strong>reproductible, fiable et entièrement automatisée</strong>.</p>
+
+            <p>L'objectif principal est de pouvoir lancer <strong>un seul script d'installation</strong> sur une machine vierge, sans dépendances préalables, pour installer les outils nécessaires, déployer l'infrastructure, configurer les services et vérifier leur bon fonctionnement.</p>
+
+            <div class="tech-box devops-box">
+                <h3><i class="fas fa-tools"></i> Technologies & Outils</h3>
+                <ul>
+                    <li>Docker (Conteneurisation)</li>
+                    <li>Terraform (Infrastructure as Code)</li>
+                    <li>Ansible (Configuration Management)</li>
+                    <li>Bash (Orchestration)</li>
+                    <li>Nginx (Serveur web)</li>
+                    <li>PostgreSQL (Base de données)</li>
+                    <li>Linux (Ubuntu/Debian)</li>
+                </ul>
+            </div>
+
+            <div class="tech-box architecture-box">
+                <h3><i class="fas fa-sitemap"></i> Architecture du Projet</h3>
+                <p>L'architecture repose sur une <strong>séparation claire des responsabilités</strong> :</p>
+                <ul>
+                    <li><strong>Bash</strong> : Orchestration globale (vérification des prérequis, génération des fichiers, lancement des déploiements, tests automatiques)</li>
+                    <li><strong>Terraform</strong> : Définition de l'infrastructure et déclenchement d'Ansible via provisioner</li>
+                    <li><strong>Ansible</strong> : Configuration des services Docker (réseau, volumes, conteneurs Nginx et PostgreSQL)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h3>Fonctionnement du Script d'Installation</h3>
+            <div class="tech-box">
+                <h3><i class="fas fa-cogs"></i> Étapes Automatisées</h3>
+                <ol style="padding-left: 1.5rem; line-height: 1.8;">
+                    <li><strong>Vérification des droits administrateur</strong> - Contrôle des permissions sudo nécessaires</li>
+                    <li><strong>Installation automatique des outils</strong> - Docker, Terraform, Ansible et dépendances (installation idempotente)</li>
+                    <li><strong>Génération dynamique des fichiers</strong> - Inventaire Ansible, playbook et configuration Terraform créés automatiquement</li>
+                    <li><strong>Déploiement des services</strong> - Initialisation Terraform puis exécution Ansible pour déployer réseau, volumes et conteneurs</li>
+                    <li><strong>Tests automatiques</strong> - Vérification de l'état des conteneurs, tests HTTP (Nginx) et SQL (PostgreSQL)</li>
+                </ol>
+            </div>
+
+            <div class="tech-box cleanup-box">
+                <h3><i class="fas fa-broom"></i> Script de Désinstallation</h3>
+                <p>Le script <code>uninstall_td4_ansible.sh</code> permet un <strong>nettoyage complet et ciblé</strong> :</p>
+                <ul>
+                    <li>Destruction de l'infrastructure via <code>terraform destroy</code></li>
+                    <li>Suppression des ressources Docker créées (conteneurs, réseau, volume)</li>
+                    <li>Suppression du dossier projet</li>
+                    <li>Désinstallation de Terraform et Ansible</li>
+                </ul>
+                <p style="margin-top: 1rem;"><em>⚠️ Docker lui-même n'est pas supprimé, seules les ressources du projet sont nettoyées.</em></p>
+            </div>
+
+            <div class="tech-box">
+                <h3><i class="fas fa-check-circle"></i> Résultats Obtenus</h3>
+                <ul>
+                    <li>Déploiement automatisé fonctionnel sur plusieurs machines</li>
+                    <li>Environnement reproductible et portable</li>
+                    <li>Aucun prérequis manuel nécessaire</li>
+                    <li>Installation et désinstallation maîtrisées</li>
+                    <li>Séparation claire entre infrastructure et configuration</li>
+                </ul>
+            </div>
+
+            <div class="project-links">
+                <a href="#" class="btn devops-btn">
+                    <i class="fab fa-github"></i> Voir sur GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="skills-section">
+        <h3>Compétences Développées</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <h4>Infrastructure as Code</h4>
+                <p>Maîtrise de Terraform pour définir et provisionner des infrastructures de manière déclarative</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-server"></i>
+                <h4>Orchestration de services</h4>
+                <p>Configuration automatisée avec Ansible et gestion de conteneurs Docker</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-terminal"></i>
+                <h4>Scripting Bash avancé</h4>
+                <p>Automatisation complète de bout en bout avec gestion des erreurs et tests</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-bug"></i>
+                <h4>Debug & Validation</h4>
+                <p>Tests automatiques des services et validation de l'infrastructure déployée</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .devops-banner {
+        background: linear-gradient(135deg, #00c853 0%, #00897b 100%);
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 3rem;
+        box-shadow: 0 15px 35px rgba(0, 200, 83, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .devops-banner::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+        );
+        animation: slide 20s linear infinite;
+    }
+
+    @keyframes slide {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    .devops-banner h2 {
+        font-size: 2.2rem;
+        margin: 1rem 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .devops-duration {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        color: white;
+    }
+
+    .devops-box {
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        border: 2px solid #4caf50;
+    }
+
+    .devops-box h3 {
+        color: #2e7d32;
+    }
+
+    .architecture-box {
+        background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+        border: 2px solid #ff9800;
+    }
+
+    .architecture-box h3 {
+        color: #e65100;
+    }
+
+    .cleanup-box {
+        background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+        border: 2px solid #e91e63;
+    }
+
+    .cleanup-box h3 {
+        color: #c2185b;
+    }
+
+    .cleanup-box code {
+        background: rgba(0, 0, 0, 0.05);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+    }
+
+    .devops-btn {
+        background: linear-gradient(135deg, #00c853, #00897b);
+        border: none;
+    }
+
+    .devops-btn:hover {
+        background: linear-gradient(135deg, #00897b, #00c853);
+    }
+
+    .skills-section {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, var(--white), #f8fafc);
+        border-radius: 20px;
+        box-shadow: var(--card-shadow);
+    }
+
+    .skills-section h3 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid #00c853;
+    }
+
+    .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 200, 83, 0.2);
+    }
+
+    .skill-item i {
+        font-size: 2rem;
+        color: #00c853;
+        margin-bottom: 1rem;
+    }
+
+    .skill-item h4 {
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .skill-item p {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .devops-banner {
+            padding: 2rem 1rem;
+        }
+
+        .devops-banner h2 {
+            font-size: 1.6rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .skills-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.tech-box, .skill-item').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'all 0.6s ease-out';
+        observer.observe(element);
+    });
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+        // ============================================
+        // NAVIGATION MENU - Fonctions JavaScript
+        // À ajouter dans la balise <script> de chaque page
+        // ============================================
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        }
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.querySelector('.nav-toggle').classList.remove('active');
+                }
+            });
+        });
+
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.modern-nav');
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+        });
+
+        // Mettre en évidence la page active
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+        });
+        });
+
+        // Effet de scroll pour la navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.modern-nav');
+            if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Borg Backup - Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="modern-nav">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <i class="fas fa-code"></i>
+            <span>Rayane Cathelin</span>
+        </a>
+        <button class="nav-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="izydesk.html" class="nav-link"><i class="fas fa-briefcase"></i> Stage</a></li>
+            <li><a href="borg_backup.html" class="nav-link"><i class="fas fa-hdd"></i> Borg</a></li>
+            <li><a href="nuit-info.html" class="nav-link"><i class="fas fa-trophy"></i> Nuit Info</a></li>
+            <li><a href="terraform_ansible.html" class="nav-link"><i class="fas fa-robot"></i> IaC</a></li>
+            <li><a href="sae_reseau.html" class="nav-link"><i class="fas fa-server"></i> Infra</a></li>
+            <li><a href="vote.html" class="nav-link"><i class="fas fa-vote-yea"></i> Vote</a></li>
+            <li><a href="ecommerce.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="project-detail">
+    <a href="index.html" class="retour-btn"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+
+    <div class="backup-banner">
+        <h2>Client de Sauvegarde Graphique basé sur Borg Backup</h2>
+        <p class="backup-duration">Semestre 5 • Projet Systèmes & Sécurité</p>
+    </div>
+
+    <div class="project-section">
+        <div>
+            <h3>Présentation du Projet</h3>
+            <p>Développement d'un <strong>client de sauvegarde graphique</strong> permettant de sauvegarder et restaurer des fichiers de manière <strong>sécurisée, versionnée et dédupliquée</strong>, en s'appuyant sur l'outil professionnel <strong>Borg Backup</strong>.</p>
+
+            <p>L'objectif est de <strong>simplifier l'usage de Borg</strong>, normalement en ligne de commande, en proposant une <strong>interface graphique intuitive</strong> accessible aux utilisateurs non techniques, tout en conservant toute la puissance et la fiabilité de Borg côté backend.</p>
+
+            <div class="tech-box backup-box">
+                <h3><i class="fas fa-tools"></i> Technologies Utilisées</h3>
+                <ul>
+                    <li>Python (Backend & Logique métier)</li>
+                    <li>Tkinter / TkinterDnD (Interface graphique)</li>
+                    <li>Borg Backup (Moteur de sauvegarde)</li>
+                    <li>SSH (Authentification sécurisée)</li>
+                    <li>JSON (Communication avec Borg)</li>
+                    <li>Linux (Environnement système)</li>
+                </ul>
+            </div>
+
+            <div class="tech-box architecture-box">
+                <h3><i class="fas fa-project-diagram"></i> Architecture</h3>
+                <p><strong>Client :</strong></p>
+                <ul>
+                    <li>Application Python avec interface Tkinter multi-fenêtres</li>
+                    <li>Modules : sauvegarde système, sauvegarde à la volée, historique et restauration</li>
+                    <li>Exécution locale sur le poste utilisateur</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Serveur :</strong></p>
+                <ul>
+                    <li>Dépôt Borg distant accessible via SSH</li>
+                    <li>Authentification par clé publique</li>
+                    <li>Chiffrement des données côté serveur</li>
+                </ul>
+            </div>
+            <div class="screenshot-container">
+                <img src="borg1.png" alt="Borg" class="project-screenshot">
+            </div>
+        </div>
+
+        <div>
+            <h3>Fonctionnalités Principales</h3>
+            <div class="tech-box">
+                <h3><i class="fas fa-save"></i> Système de Sauvegarde</h3>
+                <ul>
+                    <li><strong>Sauvegarde système automatique</strong> : dossiers critiques (.ssh, Documents, Desktop, .config, .local/share)</li>
+                    <li><strong>Sauvegarde personnalisée</strong> : ajout de dossiers supplémentaires avec filtrage par extension</li>
+                    <li><strong>Planification</strong> : programmation de sauvegardes à heure définie</li>
+                    <li><strong>Déduplication intelligente</strong> : Borg ne stocke que les blocs modifiés</li>
+                </ul>
+            </div>
+
+            <div class="tech-box versioning-box">
+                <h3><i class="fas fa-history"></i> Versioning & Historique</h3>
+                <ul>
+                    <li>Chaque sauvegarde crée une <strong>archive immuable</strong> avec horodatage</li>
+                    <li>Regroupement logique des archives par nom de groupe</li>
+                    <li>Navigation par versions dans l'interface</li>
+                    <li>Consultation du contenu précis de chaque archive</li>
+                    <li>Restauration de n'importe quelle version antérieure</li>
+                </ul>
+            </div>
+
+            <div class="tech-box security-box">
+                <h3><i class="fas fa-shield-alt"></i> Sécurité</h3>
+                <ul>
+                    <li>Authentification SSH par clé (aucun mot de passe stocké)</li>
+                    <li>Dépôt Borg entièrement chiffré</li>
+                    <li>Gestion automatisée des empreintes SSH</li>
+                    <li>Protection contre les prompts bloquants</li>
+                    <li>Aucune exposition des données en clair</li>
+                </ul>
+            </div>
+
+            <div class="project-links">
+                <a href="#" class="btn btn-secondary" onclick="alert('Démonstration indisponible en ligne pour des raisons de sécurité.');">
+                    <i class="fas fa-play"></i> Démo (Sur demande)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <h3>Fonctionnement Technique Détaillé</h3>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-cogs"></i>
+                <h4>Processus de Sauvegarde</h4>
+                <p>L'application appelle Borg via <code>subprocess</code>. Borg parcourt les fichiers, les découpe en blocs de taille variable, calcule des hashs et ne stocke que les blocs nouveaux ou modifiés.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-tasks"></i>
+                <h4>Gestion du Versioning</h4>
+                <p>Chaque sauvegarde est une nouvelle archive avec nom de groupe et horodatage. Borg assure la déduplication en interne, le projet ajoute une navigation logique par versions.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-undo"></i>
+                <h4>Restauration Intelligente</h4>
+                <p>Avant restauration, simulation avec <code>borg extract --dry-run</code>, détection des conflits de fichiers et confirmation utilisateur avant écrasement.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-list"></i>
+                <h4>Visualisation de l'Historique</h4>
+                <p>Récupération de l'historique via <code>borg list --json</code>, affichage par groupe, date et version avec possibilité de consulter le contenu et de supprimer des archives.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="skills-section">
+        <h3>Compétences Développées</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Automatisation Système</h4>
+                <p>Intégration avancée de Borg via Python, gestion de processus système et orchestration de sauvegardes automatisées</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-lock"></i>
+                <h4>Sécurité des Accès</h4>
+                <p>Mise en place d'authentification SSH par clé, gestion sécurisée des connexions et chiffrement des données</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-desktop"></i>
+                <h4>Interfaces Graphiques</h4>
+                <p>Conception d'une interface Tkinter multi-fenêtres intuitive, avec drag & drop et gestion d'événements</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <h4>Gestion de Données</h4>
+                <p>Maîtrise des concepts de déduplication, versioning, sauvegardes incrémentales et restauration de données</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="conclusion-section">
+        <div class="conclusion-content">
+            <i class="fas fa-quote-left"></i>
+            <p>Ce projet m'a permis de concevoir une <strong>solution de sauvegarde complète</strong> combinant fiabilité, sécurité et simplicité d'utilisation, tout en m'appuyant sur un outil professionnel reconnu dans l'administration système.</p>
+            <p style="margin-top: 1rem;">L'enjeu principal était de rendre accessible un outil en ligne de commande complexe, tout en préservant sa puissance technique et en garantissant une expérience utilisateur fluide.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .backup-banner {
+        background: linear-gradient(135deg, #5c6bc0 0%, #3949ab 100%);
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 3rem;
+        box-shadow: 0 15px 35px rgba(92, 107, 192, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .backup-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,40 50,50 T100,50 L100,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
+        background-size: 200px 100px;
+        animation: wave 10s linear infinite;
+    }
+
+    @keyframes wave {
+        0% { background-position: 0 0; }
+        100% { background-position: 200px 0; }
+    }
+
+    .backup-banner h2 {
+        font-size: 2.2rem;
+        margin: 1rem 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .backup-duration {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        color: white;
+    }
+
+    .backup-box {
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        border: 2px solid #2196f3;
+    }
+
+    .backup-box h3 {
+        color: #1565c0;
+    }
+
+    .architecture-box {
+        background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+        border: 2px solid #9c27b0;
+    }
+
+    .architecture-box h3 {
+        color: #6a1b9a;
+    }
+
+    .versioning-box {
+        background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+        border: 2px solid #ff9800;
+    }
+
+    .versioning-box h3 {
+        color: #e65100;
+    }
+
+    .security-box {
+        background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+        border: 2px solid #e91e63;
+    }
+
+    .security-box h3 {
+        color: #c2185b;
+    }
+
+    .backup-btn {
+        background: linear-gradient(135deg, #5c6bc0, #3949ab);
+        border: none;
+    }
+
+    .backup-btn:hover {
+        background: linear-gradient(135deg, #3949ab, #5c6bc0);
+    }
+
+    code {
+        background: rgba(0, 0, 0, 0.05);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+        color: #d32f2f;
+    }
+
+    .features-section {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, var(--white), #f8fafc);
+        border-radius: 20px;
+        box-shadow: var(--card-shadow);
+    }
+
+    .features-section h3 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid #5c6bc0;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(92, 107, 192, 0.2);
+    }
+
+    .feature-item i {
+        font-size: 2rem;
+        color: #5c6bc0;
+        margin-bottom: 1rem;
+    }
+
+    .feature-item h4 {
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .feature-item p {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .skills-section {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+        border-radius: 20px;
+        box-shadow: var(--card-shadow);
+    }
+
+    .skills-section h3 {
+        color: #3949ab;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid #5c6bc0;
+    }
+
+    .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(92, 107, 192, 0.2);
+    }
+
+    .skill-item i {
+        font-size: 2rem;
+        color: #5c6bc0;
+        margin-bottom: 1rem;
+    }
+
+    .skill-item h4 {
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .skill-item p {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .conclusion-section {
+        margin-top: 4rem;
+        padding: 2.5rem;
+        background: linear-gradient(135deg, #fff8e1, #ffecb3);
+        border-radius: 20px;
+        box-shadow: var(--card-shadow);
+        border-left: 6px solid #ffa726;
+    }
+
+    .conclusion-content {
+        position: relative;
+        padding-left: 3rem;
+    }
+
+    .conclusion-content i.fa-quote-left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 2rem;
+        color: #ffa726;
+        opacity: 0.3;
+    }
+
+    .conclusion-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--gray-800);
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .backup-banner {
+            padding: 2rem 1rem;
+        }
+
+        .backup-banner h2 {
+            font-size: 1.6rem;
+        }
+
+        .features-grid,
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .features-section,
+        .skills-section,
+        .conclusion-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+        }
+
+        .conclusion-content {
+            padding-left: 2rem;
+        }
+
+        .conclusion-content i.fa-quote-left {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.tech-box, .feature-item, .skill-item, .conclusion-section').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'all 0.6s ease-out';
+        observer.observe(element);
+    });
+
+    const featureItems = document.querySelectorAll('.feature-item');
+    featureItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`;
+    });
+
+        // ============================================
+        // NAVIGATION MENU - Fonctions JavaScript
+        // À ajouter dans la balise <script> de chaque page
+        // ============================================
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        }
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.querySelector('.nav-toggle').classList.remove('active');
+                }
+            });
+        });
+
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.modern-nav');
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+        });
+
+        // Mettre en évidence la page active
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+        });
+        });
+
+        // Effet de scroll pour la navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.modern-nav');
+            if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+        });
+</script>
+</body>
+</html>

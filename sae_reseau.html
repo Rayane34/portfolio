@@ -71,8 +71,15 @@
                 <p style="margin-top: 1rem;"><em>Tous les services applicatifs délèguent l'authentification à Authentik.</em></p>
             </div>
 
+
             <div class="screenshot-container">
-                <img src="authentik1.png" alt="Interface Authentik SSO" class="project-screenshot">
+                <img src="Capture d’écran du 2026-01-29 16-59-00.png" alt="nterface Authentik SSO" class="project-screenshot">
+            </div>
+            <div class="screenshot-container">
+                <img src="Capture d’écran du 2026-01-29 16-59-20.png" alt="Gestion des applications Authentik" class="project-screenshot">
+            </div>
+            <div class="screenshot-container">
+                <img src="authentik1.png" alt="Tableau de bord AuthentikI" class="project-screenshot">
             </div>
         </div>
 
@@ -240,12 +247,17 @@
     </div>
 
     <div class="project-links">
-        <a href="Copie de CAHIER_DES_CHARGES_SAE_CATHELIN _MAURIN_MARTIN-1.pdf" class="btn infra-btn" target="_blank">
+        <a href="Compte_Rendu_SAE_CATHELIN_MARTIN.pdf" class="btn infra-btn" target="_blank">
             <i class="fas fa-file-pdf"></i> Voir le Rapport
         </a>
-        <a href="#" class="btn btn-secondary" onclick="alert('Démonstration indisponible en ligne pour des raisons de sécurité.');">
-            <i class="fas fa-play"></i> Démo (Sur demande)
+        <a href="https://auth.rayanec.com" class="btn demo-btn" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Accéder à la démo
         </a>
+    </div>
+
+    <div class="demo-notice">
+        <i class="fas fa-info-circle"></i>
+        <p><strong>Note :</strong> La démonstration en ligne est accessible uniquement lorsque le serveur est démarré. Si le lien ne fonctionne pas, n'hésitez pas à me contacter pour organiser une démonstration en direct.</p>
     </div>
 </section>
 
@@ -346,6 +358,44 @@
 
     .infra-btn:hover {
         background: linear-gradient(135deg, #3730a3, #1e3a8a);
+    }
+
+    .demo-btn {
+        background: linear-gradient(135deg, #10b981, #059669);
+        border: none;
+    }
+
+    .demo-btn:hover {
+        background: linear-gradient(135deg, #059669, #047857);
+    }
+
+    .demo-notice {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        border-left: 4px solid #2563eb;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+    }
+
+    .demo-notice i {
+        font-size: 1.5rem;
+        color: #2563eb;
+        margin-top: 0.2rem;
+        flex-shrink: 0;
+    }
+
+    .demo-notice p {
+        margin: 0;
+        color: #1e40af;
+        line-height: 1.6;
+    }
+
+    .demo-notice strong {
+        color: #1e3a8a;
     }
 
     .security-section {
@@ -578,6 +628,15 @@
         .tech-tags {
             justify-content: center;
         }
+
+        .demo-notice {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .demo-notice i {
+            align-self: center;
+        }
     }
 </style>
 
@@ -596,7 +655,7 @@
         });
     }, observerOptions);
 
-    document.querySelectorAll('.tech-box, .security-item, .challenge-item, .learning-item').forEach(element => {
+    document.querySelectorAll('.tech-box, .security-item, .challenge-item, .learning-item, .screenshot-container').forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = 'all 0.6s ease-out';

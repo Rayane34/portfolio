@@ -6,58 +6,6 @@
   <title>Portfolio d'Apprentissage</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Gestion du clic sur les en-têtes de compétence
-      document.querySelectorAll('.competence-header').forEach(header => {
-        header.addEventListener('click', function() {
-          this.classList.toggle('active');
-          let content = this.nextElementSibling;
-          if (this.classList.contains('active')) {
-            content.classList.add('active');
-          } else {
-            content.classList.remove('active');
-          }
-        });
-      });
-
-      // Gestion du clic sur les en-têtes d'AC
-      document.querySelectorAll('.ac-header').forEach(header => {
-        header.addEventListener('click', function() {
-          this.classList.toggle('active');
-          let content = this.nextElementSibling;
-          if (this.classList.contains('active')) {
-            content.classList.add('active');
-          } else {
-            content.classList.remove('active');
-          }
-        });
-      });
-
-      // Animation au scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-
-      // Observer les cartes de compétences
-      document.querySelectorAll('.competence-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease-out';
-        observer.observe(card);
-      });
-    });
-  </script>
 </head>
 <body>
 <nav class="modern-nav">
@@ -89,222 +37,371 @@
 
   <div class="apprentissage-header">
     <h2><i class="fas fa-graduation-cap"></i> Portfolio d'Apprentissage</h2>
-    <p class="apprentissage-intro">Ce portfolio présente les compétences que j'ai développées au cours de ma formation et de mes projets professionnels. Il illustre comment j'ai mis en œuvre ces compétences dans des situations concrètes à travers des exemples pratiques et des réalisations tangibles.</p>
-  </div>
-
-  <div class="competence-grid">
-    <!-- Compétence 1: Optimiser (ORANGE) -->
-    <div class="competence-card">
-      <div class="competence-header orange-bg">
-        <span><i class="fas fa-cogs"></i> Optimiser</span>
-        <div>
-          <span class="level-label">Niveau 2</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="competence-content">
-        <div class="ce-box">
-          <h4 class="ce-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
-          <div class="ce-item">CE2.01 | en formalisant et modélisant des situations complexes</div>
-          <div class="ce-item">CE2.02 | en recensant les algorithmes et les structures de données usuels</div>
-          <div class="ce-item">CE2.03 | en s'appuyant sur des schémas de raisonnement</div>
-          <div class="ce-item">CE2.04 | en justifiant les choix et validant les résultats</div>
-        </div>
-
-        <h3>Sélectionner les algorithmes adéquats pour répondre à un problème donné</h3>
-
-        <div class="ac-grid">
-          <!-- AC 1 -->
-          <div class="ac-card">
-            <div class="ac-header orange-bg">
-              <span><i class="fas fa-database"></i> AC 1 – Structures de données complexes</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Dans mon stage chez Izydesk, j'ai utilisé un context global combiné à un reducer pour centraliser les données de l'entreprise. Cette structure permet d'éviter les redondances d'appels API et facilite la gestion d'état sur l'ensemble du site. Elle est bien plus adaptée qu'un simple useState pour un projet e-commerce à composants multiples.</p>
-            </div>
-          </div>
-
-          <!-- AC 2 -->
-          <div class="ac-card">
-            <div class="ac-header orange-bg">
-              <span><i class="fas fa-algorithm"></i> AC 2 – Techniques algorithmiques adaptées</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Sur le projet Vote Électronique, j'ai implémenté l'algorithme de chiffrement ElGamal en Java. Ce choix permettait de garantir la sécurité des bulletins tout en respectant les contraintes d'un système client-serveur. J'ai également utilisé des structures mathématiques adaptées aux grands entiers.</p>
-            </div>
-          </div>
-
-          <!-- AC 3 -->
-          <div class="ac-card">
-            <div class="ac-header orange-bg">
-              <span><i class="fas fa-shield-alt"></i> AC 3 – Sécurisation des données et du code</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Dans le site e-commerce PHP, j'ai sécurisé les formulaires contre les injections SQL à l'aide de requêtes préparées. J'ai aussi mis en place une gestion des sessions utilisateurs pour protéger les accès aux commandes.</p>
-            </div>
-          </div>
-
-          <!-- AC 4 -->
-          <div class="ac-card">
-            <div class="ac-header orange-bg">
-              <span><i class="fas fa-leaf"></i> AC 4 – Impact environnemental et sociétal</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Lors de la Nuit de l'Info, nous avons conçu un jeu web léger avec JavaScript et Canvas API, pensé pour être accessible sur tout type d'appareil sans surconsommation de ressources. Nous avons privilégié un code simple, peu gourmand, afin de réduire l'impact énergétique du site sur le long terme.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Compétence 2: Gérer (VERT) -->
-    <div class="competence-card">
-      <div class="competence-header green-bg">
-        <span><i class="fas fa-server"></i> Gérer</span>
-        <div>
-          <span class="level-label">Niveau 2</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="competence-content">
-        <div class="ce-box green-ce">
-          <h4 class="ce-title green-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
-          <div class="ce-item">CE4.01 en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles</div>
-          <div class="ce-item">CE4.02 en respectant les enjeux économiques, sociétaux et écologiques de l'utilisation du stockage de données</div>
-          <div class="ce-item">CE4.03 en s'appuyant sur des bases mathématiques</div>
-          <div class="ce-item">CE4.04 en assurant la cohérence et la qualité</div>
-        </div>
-
-        <h3>Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</h3>
-
-        <div class="ac-grid">
-          <!-- AC 1 -->
-          <div class="ac-card">
-            <div class="ac-header green-bg">
-              <span><i class="fas fa-database"></i> AC 1 – Optimiser les modèles de données</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Dans le projet E-commerce PHP, j'ai conçu un modèle relationnel normalisé pour la gestion des utilisateurs, produits et commandes. J'ai adapté les relations pour permettre des jointures efficaces dans les requêtes critiques (panier, historique, etc.).</p>
-            </div>
-          </div>
-
-          <!-- AC 2 -->
-          <div class="ac-card">
-            <div class="ac-header green-bg">
-              <span><i class="fas fa-user-shield"></i> AC 2 – Assurer la confidentialité des données</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Lors de mon stage chez Izydesk, j'ai sécurisé les données utilisateurs en contrôlant systématiquement les erreurs API et en affichant des messages adaptés en cas d'anomalie. Le système de panier, par exemple, est protégé contre les manipulations côté client.</p>
-            </div>
-          </div>
-
-          <!-- AC 3 -->
-          <div class="ac-card">
-            <div class="ac-header green-bg">
-              <span><i class="fas fa-chart-bar"></i> AC 3 – Organiser la restitution de données</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Dans le site e-commerce PHP, j'ai développé des vues HTML dynamiques pour afficher les produits, les détails de commande et les informations de compte. Côté back-end, les données étaient extraites via des classes Model en PHP puis injectées dans les View.</p>
-            </div>
-          </div>
-
-          <!-- AC 4 -->
-          <div class="ac-card">
-            <div class="ac-header green-bg">
-              <span><i class="fas fa-exchange-alt"></i> AC 4 – Manipuler des données hétérogènes</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Chez Izydesk, j'ai manipulé des objets JSON complexes retournés par l'API. J'ai dû filtrer dynamiquement des produits non affichables à l'aide de l'attribut isDisplayForPos, ce qui m'a obligé à adapter le rendu du front-end en fonction de la logique métier.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Compétence 3: Conduire (BLEU) -->
-    <div class="competence-card">
-      <div class="competence-header blue-bg">
-        <span><i class="fas fa-project-diagram"></i> Conduire</span>
-        <div>
-          <span class="level-label">Niveau 2</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="competence-content">
-        <div class="ce-box blue-ce">
-          <h4 class="ce-title blue-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
-          <div class="ce-item">CE5.04 | en adoptant une démarche proactive, créative et critique</div>
-          <div class="ce-item">CE5.02 | en respectant les règles juridiques et les normes en vigueur</div>
-          <div class="ce-item">CE5.01 | en communiquant efficacement avec les différents acteurs d'un projet</div>
-          <div class="ce-item">CE5.03 | en sensibilisant à une gestion éthique, responsable, durable et interculturelle</div>
-        </div>
-
-        <h3>Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs</h3>
-
-        <div class="ac-grid">
-          <!-- AC 1 -->
-          <div class="ac-card">
-            <div class="ac-header blue-bg">
-              <span><i class="fas fa-sitemap"></i> AC 1 – Identifier les processus d'une organisation</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Pendant mon stage chez Izydesk, j'ai analysé les flux de gestion de commande dans le secteur de la restauration, et intégré ces besoins métiers dans la conception du site (types de commande, options produits, allergènes, gestion d'adresses).</p>
-            </div>
-          </div>
-
-          <!-- AC 2 -->
-          <div class="ac-card">
-            <div class="ac-header blue-bg">
-              <span><i class="fas fa-file-contract"></i> AC 2 – Formaliser les besoins du client</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>J'ai rédigé un cahier des charges personnel en début de stage chez Izydesk pour structurer mes objectifs. Ce document comprenait les besoins fonctionnels comme l'ajout au panier, la navigation par catégorie ou l'internationalisation.</p>
-            </div>
-          </div>
-
-          <!-- AC 3 -->
-          <div class="ac-card">
-            <div class="ac-header blue-bg">
-              <span><i class="fas fa-tasks"></i> AC 3 – Identifier les critères de faisabilité</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>Lors de la Nuit de l'Info, nous avons évalué dès le départ ce qui était réalisable en 24h. Nous avons réduit les ambitions techniques et nous sommes concentrés sur un MVP : un jeu simple, responsive et fonctionnel. Ce tri initial nous a permis de livrer dans les temps.</p>
-            </div>
-          </div>
-
-          <!-- AC 4 -->
-          <div class="ac-card">
-            <div class="ac-header blue-bg">
-              <span><i class="fas fa-chart-line"></i> AC 4 – Définir une démarche de suivi de projet</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="ac-content">
-              <p>En stage, j'ai suivi un cycle structuré avec GitLab : création de branches, merge requests, validation par le CTO. Chaque semaine, un point d'équipe permettait de suivre l'avancement et de prioriser les tâches. Ce cadre m'a permis de livrer régulièrement du code stable.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <p class="apprentissage-intro">Ce portfolio présente les compétences développées au cours de ma formation BUT Informatique. Naviguez entre les deux années pour voir l'évolution de mes apprentissages.</p>
+    <div class="year-tabs">
+      <button class="year-tab" id="tab-but2" onclick="switchTab('but2')">
+        <i class="fas fa-graduation-cap"></i> BUT 2
+      </button>
+      <button class="year-tab active" id="tab-but3" onclick="switchTab('but3')">
+        <i class="fas fa-graduation-cap"></i> BUT 3
+      </button>
     </div>
   </div>
+
+  <!-- ===== BUT 2 ===== -->
+  <div id="content-but2" class="year-content" style="display:none;">
+    <div class="year-banner but2-banner">
+      <i class="fas fa-history"></i> 2ème Année — Parcours DACS — Compétences de Niveau 2
+    </div>
+    <div class="competence-grid">
+
+      <!-- Optimiser (ORANGE) -->
+      <div class="competence-card">
+        <div class="competence-header orange-bg">
+          <span><i class="fas fa-cogs"></i> Optimiser</span>
+          <div><span class="level-label">Niveau 2</span><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="competence-content">
+          <div class="ce-box">
+            <h4 class="ce-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+            <div class="ce-item">CE2.01 | en formalisant et modélisant des situations complexes</div>
+            <div class="ce-item">CE2.02 | en recensant les algorithmes et les structures de données usuels</div>
+            <div class="ce-item">CE2.03 | en s'appuyant sur des schémas de raisonnement</div>
+            <div class="ce-item">CE2.04 | en justifiant les choix et validant les résultats</div>
+          </div>
+          <h3>Sélectionner les algorithmes adéquats pour répondre à un problème donné</h3>
+          <div class="ac-grid">
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-database"></i> AC 1 – Structures de données complexes</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Dans mon stage chez Izydesk, j'ai utilisé un context global combiné à un reducer pour centraliser les données de l'entreprise. Cette structure permet d'éviter les redondances d'appels API et facilite la gestion d'état sur l'ensemble du site. Elle est bien plus adaptée qu'un simple useState pour un projet e-commerce à composants multiples.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-brain"></i> AC 2 – Techniques algorithmiques adaptées</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Sur le projet Vote Électronique, j'ai implémenté l'algorithme de chiffrement ElGamal en Java. Ce choix permettait de garantir la sécurité des bulletins tout en respectant les contraintes d'un système client-serveur. J'ai également utilisé des structures mathématiques adaptées aux grands entiers.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-shield-alt"></i> AC 3 – Sécurisation des données et du code</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Dans le site e-commerce PHP, j'ai sécurisé les formulaires contre les injections SQL à l'aide de requêtes préparées. J'ai aussi mis en place une gestion des sessions utilisateurs pour protéger les accès aux commandes.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-leaf"></i> AC 4 – Impact environnemental et sociétal</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Lors de la Nuit de l'Info, nous avons conçu un jeu web léger avec JavaScript et Canvas API, pensé pour être accessible sur tout type d'appareil sans surconsommation de ressources. Nous avons privilégié un code simple, peu gourmand, afin de réduire l'impact énergétique du site sur le long terme.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gérer (VERT) -->
+      <div class="competence-card">
+        <div class="competence-header green-bg">
+          <span><i class="fas fa-server"></i> Gérer</span>
+          <div><span class="level-label">Niveau 2</span><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="competence-content">
+          <div class="ce-box green-ce">
+            <h4 class="ce-title green-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+            <div class="ce-item">CE4.01 en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles</div>
+            <div class="ce-item">CE4.02 en respectant les enjeux économiques, sociétaux et écologiques de l'utilisation du stockage de données</div>
+            <div class="ce-item">CE4.03 en s'appuyant sur des bases mathématiques</div>
+            <div class="ce-item">CE4.04 en assurant la cohérence et la qualité</div>
+          </div>
+          <h3>Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</h3>
+          <div class="ac-grid">
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-database"></i> AC 1 – Optimiser les modèles de données</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Dans le projet E-commerce PHP, j'ai conçu un modèle relationnel normalisé pour la gestion des utilisateurs, produits et commandes. J'ai adapté les relations pour permettre des jointures efficaces dans les requêtes critiques (panier, historique, etc.).</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-user-shield"></i> AC 2 – Assurer la confidentialité des données</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Lors de mon stage chez Izydesk, j'ai sécurisé les données utilisateurs en contrôlant systématiquement les erreurs API et en affichant des messages adaptés en cas d'anomalie. Le système de panier, par exemple, est protégé contre les manipulations côté client.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-chart-bar"></i> AC 3 – Organiser la restitution de données</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Dans le site e-commerce PHP, j'ai développé des vues HTML dynamiques pour afficher les produits, les détails de commande et les informations de compte. Côté back-end, les données étaient extraites via des classes Model en PHP puis injectées dans les View.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-exchange-alt"></i> AC 4 – Manipuler des données hétérogènes</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Chez Izydesk, j'ai manipulé des objets JSON complexes retournés par l'API. J'ai dû filtrer dynamiquement des produits non affichables à l'aide de l'attribut isDisplayForPos, ce qui m'a obligé à adapter le rendu du front-end en fonction de la logique métier.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conduire (BLEU) -->
+      <div class="competence-card">
+        <div class="competence-header blue-bg">
+          <span><i class="fas fa-project-diagram"></i> Conduire</span>
+          <div><span class="level-label">Niveau 2</span><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="competence-content">
+          <div class="ce-box blue-ce">
+            <h4 class="ce-title blue-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+            <div class="ce-item">CE5.04 | en adoptant une démarche proactive, créative et critique</div>
+            <div class="ce-item">CE5.02 | en respectant les règles juridiques et les normes en vigueur</div>
+            <div class="ce-item">CE5.01 | en communiquant efficacement avec les différents acteurs d'un projet</div>
+            <div class="ce-item">CE5.03 | en sensibilisant à une gestion éthique, responsable, durable et interculturelle</div>
+          </div>
+          <h3>Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs</h3>
+          <div class="ac-grid">
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-sitemap"></i> AC 1 – Identifier les processus d'une organisation</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Pendant mon stage chez Izydesk, j'ai analysé les flux de gestion de commande dans le secteur de la restauration, et intégré ces besoins métiers dans la conception du site (types de commande, options produits, allergènes, gestion d'adresses).</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-file-contract"></i> AC 2 – Formaliser les besoins du client</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>J'ai rédigé un cahier des charges personnel en début de stage chez Izydesk pour structurer mes objectifs. Ce document comprenait les besoins fonctionnels comme l'ajout au panier, la navigation par catégorie ou l'internationalisation.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-tasks"></i> AC 3 – Identifier les critères de faisabilité</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Lors de la Nuit de l'Info, nous avons évalué dès le départ ce qui était réalisable en 24h. Nous avons réduit les ambitions techniques et nous sommes concentrés sur un MVP : un jeu simple, responsive et fonctionnel. Ce tri initial nous a permis de livrer dans les temps.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-chart-line"></i> AC 4 – Définir une démarche de suivi de projet</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>En stage, j'ai suivi un cycle structuré avec GitLab : création de branches, merge requests, validation par le CTO. Chaque semaine, un point d'équipe permettait de suivre l'avancement et de prioriser les tâches. Ce cadre m'a permis de livrer régulièrement du code stable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- fin #content-but2 -->
+
+  <!-- ===== BUT 3 ===== -->
+  <div id="content-but3" class="year-content">
+    <div class="year-banner but3-banner">
+      <i class="fas fa-star"></i> 3ème Année — Parcours DACS — Compétences de Niveau 3
+    </div>
+    <div class="competence-grid">
+
+      <!-- Administrer (ORANGE) -->
+      <div class="competence-card">
+        <div class="competence-header orange-bg">
+          <span><i class="fas fa-server"></i> Administrer</span>
+          <div><span class="level-label">Niveau 3</span><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="competence-content">
+          <div class="ce-box">
+            <h4 class="ce-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+            <div class="ce-item">CE3.01 | en sécurisant le système d'information</div>
+            <div class="ce-item">CE3.02 | en offrant une qualité de service optimale</div>
+            <div class="ce-item">CE3.03 | en appliquant les normes en vigueur et les bonnes pratiques architecturales et de sécurité</div>
+            <div class="ce-item">CE3.04 | en assurant la continuité d'activité</div>
+          </div>
+          <h3>Faire évoluer et maintenir un système informatique communicant en conditions opérationnelles</h3>
+          <div class="ac-grid">
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-robot"></i> AC 1 – Créer des processus de traitement automatisé</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Pour mon projet d'Infrastructure as Code (IaC), j'ai utilisé <strong>Terraform</strong> pour provisionner les ressources et <strong>Ansible</strong> pour automatiser la configuration des serveurs. Cela m'a permis de déployer un environnement complet et reproductible, minimisant les erreurs manuelles et accélérant les mises en production.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-network-wired"></i> AC 2 – Configurer un serveur et des services réseaux de manière avancée</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Lors de la <strong>SAÉ Réseau</strong>, j'ai conçu et mis en place une infrastructure réseau complexe. J'ai configuré des serveurs, géré le routage et mis en œuvre des services essentiels tout en utilisant la virtualisation pour optimiser les ressources matérielles et isoler les environnements.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-shield-alt"></i> AC 3 – Appliquer une politique de sécurité au niveau de l'infrastructure</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>J'ai mis en place des règles de pare-feu strictes et des accès sécurisés (clés SSH) sur mes serveurs déployés via <strong>Ansible</strong>. De plus, j'ai appliqué les principes du moindre privilège pour garantir que seuls les services nécessaires soient exposés aux menaces extérieures.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header orange-bg">
+                <span><i class="fas fa-sync-alt"></i> AC 4 – Déployer et maintenir un réseau d'organisation en fonction de ses besoins</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Avec le projet <strong>Borg Backup</strong>, j'ai assuré la continuité d'activité en automatisant des sauvegardes chiffrées et dédupliquées. J'ai configuré ce service pour qu'il s'exécute régulièrement, garantissant ainsi la restauration rapide des données critiques en cas de défaillance du réseau ou des serveurs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Réaliser (VERT) -->
+      <div class="competence-card">
+        <div class="competence-header green-bg">
+          <span><i class="fas fa-code"></i> Réaliser</span>
+          <div><span class="level-label">Niveau 3</span><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="competence-content">
+          <div class="ce-box green-ce">
+            <h4 class="ce-title green-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+            <div class="ce-item">CE1.01 | en respectant les besoins décrits par le client</div>
+            <div class="ce-item">CE1.03 | en appliquant les principes algorithmiques</div>
+            <div class="ce-item">CE1.04 | en veillant à la qualité du code et à sa documentation</div>
+            <div class="ce-item">CE1.06 | en choisissant les ressources techniques appropriées</div>
+          </div>
+          <h3>Adapter des applications sur un ensemble de supports (embarqué, web, mobile, IoT…)</h3>
+          <div class="ac-grid">
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-sitemap"></i> AC 1 – Choisir et implémenter les architectures adaptées</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Lors de mon stage chez <strong>Izydesk</strong>, j'ai implémenté une architecture basée sur un contexte global combiné à un reducer en React. Ce choix technique était essentiel pour centraliser l'état de l'application e-commerce et éviter la redondance des appels API sur une plateforme à multiples composants.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-code-branch"></i> AC 2 – Faire évoluer une application existante</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Toujours chez <strong>Izydesk</strong>, j'ai dû m'adapter à la base de code existante pour y intégrer de nouvelles fonctionnalités, comme le filtrage dynamique des produits via l'attribut <code>isDisplayForPos</code>. J'ai refactorisé certaines parties du code front-end pour améliorer sa maintenabilité sans casser l'existant.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header green-bg">
+                <span><i class="fas fa-rocket"></i> AC 3 – Intégrer des solutions dans un environnement de production</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Sur le projet de <strong>Vote Électronique</strong>, j'ai intégré un algorithme de chiffrement asymétrique (ElGamal) au sein d'une architecture client-serveur en Java. Il a fallu s'assurer que l'application soit robuste, sécurisée contre les failles courantes et prête à traiter des données sensibles en conditions réelles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collaborer (BLEU) -->
+      <div class="competence-card">
+        <div class="competence-header blue-bg">
+          <span><i class="fas fa-users"></i> Collaborer</span>
+          <div><span class="level-label">Niveau 3</span><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="competence-content">
+          <div class="ce-box blue-ce">
+            <h4 class="ce-title blue-title"><i class="fas fa-clipboard-check"></i> Critères d'évaluation</h4>
+            <div class="ce-item">CE6.01 | en inscrivant sa démarche au sein d'une équipe pluridisciplinaire</div>
+            <div class="ce-item">CE6.02 | en accompagnant la mise en œuvre des évolutions informatiques</div>
+            <div class="ce-item">CE6.03 | en veillant au respect des contraintes juridiques</div>
+            <div class="ce-item">CE6.04 | en développant une communication efficace et collaborative</div>
+          </div>
+          <h3>Manager une équipe informatique</h3>
+          <div class="ac-grid">
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-rss"></i> AC 1 – Organiser et partager une veille numérique</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Pour rester performant sur les technologies d'Infrastructure as Code (<strong>Terraform, Ansible</strong>) et de développement web, j'effectue une veille technologique régulière. Je partageais mes découvertes lors des points hebdomadaires chez <strong>Izydesk</strong>, proposant parfois de nouveaux outils pour améliorer notre workflow.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-chart-line"></i> AC 2 – Identifier les enjeux de l'économie de l'innovation numérique</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Travailler sur des solutions e-commerce m'a permis de comprendre les enjeux économiques de la digitalisation. Optimiser un tunnel de commande ou garantir la haute disponibilité des serveurs sont des actions techniques qui impactent directement le chiffre d'affaires et la compétitivité d'une entreprise.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-exchange-alt"></i> AC 3 – Guider la conduite du changement informatique au sein d'une organisation</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Lors de mon stage, j'ai adopté et promu les bonnes pratiques de développement collaboratif (utilisation stricte de <strong>GitLab</strong>, Merge Requests, Code Review). J'ai documenté mes processus et mon code pour faciliter le transfert de compétences vers le CTO et les futurs développeurs de l'équipe.</p>
+              </div>
+            </div>
+            <div class="ac-card">
+              <div class="ac-header blue-bg">
+                <span><i class="fas fa-tasks"></i> AC 4 – Accompagner le management de projet informatique</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="ac-content">
+                <p>Durant la <strong>Nuit de l'Info</strong>, j'ai pris part à l'organisation de notre équipe sous la pression des 24h. Nous avons dû définir ensemble un périmètre réaliste (MVP), répartir les tâches selon les forces de chacun et faire des points de synchronisation réguliers pour garantir la livraison du projet dans le temps imparti.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- fin #content-but3 -->
+
 </section>
 
 <style>
-  /* Styles spécifiques pour la page d'apprentissage */
   .apprentissage-header {
     text-align: center;
-    margin-bottom: 4rem;
-    padding: 2rem;
+    margin-bottom: 3rem;
+    padding: 2.5rem 2rem 1.5rem;
     background: linear-gradient(135deg, var(--white), #f8fafc);
     border-radius: 20px;
     box-shadow: var(--card-shadow);
@@ -332,43 +429,123 @@
     line-height: 1.7;
     color: var(--gray-600);
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
   }
+
+  /* Onglets */
+  .year-tabs {
+    display: inline-flex;
+    gap: 0.5rem;
+    background: #f1f5f9;
+    border-radius: 50px;
+    padding: 0.4rem;
+  }
+
+  .year-tab {
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-600, #64748b);
+    background: transparent;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .year-tab:hover { color: var(--primary, #6366f1); }
+
+  .year-tab.active {
+    background: var(--gradient-bg);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+  }
+
+  /* Bannière d'année */
+  .year-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.4rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .but2-banner { background: #fef9ec; color: #b45309; border: 1px solid #fde68a; }
+  .but3-banner { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
 
   @media (max-width: 768px) {
-    .apprentissage-header {
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .apprentissage-header h2 {
-      font-size: 2rem;
-    }
-
-    .apprentissage-intro {
-      font-size: 1rem;
-    }
-
-    .ac-grid {
-      grid-template-columns: 1fr;
-    }
+    .apprentissage-header { padding: 1.5rem; margin-bottom: 2rem; }
+    .apprentissage-header h2 { font-size: 2rem; }
+    .apprentissage-intro { font-size: 1rem; }
+    .ac-grid { grid-template-columns: 1fr; }
+    .year-tab { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
   }
 </style>
-<script>
-  // ============================================
-  // NAVIGATION MENU - Fonctions JavaScript
-  // À ajouter dans la balise <script> de chaque page
-  // ============================================
 
+<script>
+  function switchTab(year) {
+    document.querySelectorAll('.year-content').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.year-tab').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('content-' + year).style.display = 'block';
+    document.getElementById('tab-' + year).classList.add('active');
+
+    // Relancer l'animation pour les cartes
+    document.querySelectorAll('#content-' + year + ' .competence-card').forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.6s ease-out';
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 120 * i);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Accordéon compétences
+    document.querySelectorAll('.competence-header').forEach(header => {
+      header.addEventListener('click', function() {
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('active');
+      });
+    });
+
+    // Accordéon AC
+    document.querySelectorAll('.ac-header').forEach(header => {
+      header.addEventListener('click', function() {
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('active');
+      });
+    });
+
+    // Animation initiale BUT 3 (onglet actif par défaut)
+    document.querySelectorAll('#content-but3 .competence-card').forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.6s ease-out';
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 150 * i);
+    });
+  });
+
+  // Navigation
   function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
     const navToggle = document.querySelector('.nav-toggle');
-
     navLinks.classList.toggle('active');
     navToggle.classList.toggle('active');
   }
 
-  // Fermer le menu en cliquant sur un lien
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 1024) {
@@ -378,36 +555,25 @@
     });
   });
 
-  // Fermer le menu en cliquant en dehors
   document.addEventListener('click', (e) => {
     const nav = document.querySelector('.modern-nav');
     const navLinks = document.getElementById('navLinks');
     const navToggle = document.querySelector('.nav-toggle');
-
     if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       navToggle.classList.remove('active');
     }
   });
 
-  // Mettre en évidence la page active
   document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-link').forEach(link => {
-      if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
-      }
+      if (link.getAttribute('href') === currentPage) link.classList.add('active');
     });
   });
 
-  // Effet de scroll pour la navigation
   window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.modern-nav');
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    document.querySelector('.modern-nav').classList.toggle('scrolled', window.scrollY > 50);
   });
 </script>
 </body>
